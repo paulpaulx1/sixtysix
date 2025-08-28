@@ -1,0 +1,530 @@
+/* Navigation.module.css - Complete Updated File with Structure.nyc Style Mobile Menu */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.8); /* Thick border like CTA buttons when unscrolled */
+  background: rgba(0, 0, 0, 0.3); /* Dark shroud like CTA buttons when unscrolled */
+}
+
+.navScrolled {
+  background: #f8f6f0; /* Your specified color */
+  border-bottom: 1px solid rgba(38, 50, 56, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem .75rem 1rem 1.2rem;
+}
+
+.logo {
+  font-family: var(--font-raleway), serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #ffffff; /* White when unscrolled */
+  text-decoration: none;
+  z-index: 1001;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+}
+
+/* Dark text when scrolled */
+.navScrolled .logo {
+  color: var(--charcoal);
+  text-shadow: none;
+}
+
+.logoIcon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transform: translateY(-100px);
+  opacity: 0;
+  animation: whaleDrop 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s forwards;
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 12px 4px 12px 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoIcon:hover {
+  transform: rotate(-2deg) scale(1.05);
+  border-radius: 4px 12px 4px 12px;
+}
+
+.logoText {
+  animation: textFlyIn 1.5s ease-out forwards;
+  font-size: 36px;
+  margin-left: 10px;
+  font-weight: 700;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.logoImage {
+  border-radius: 12px 4px 12px 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0) saturate(100%) invert(1) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3)); /* Make it pure white and add shadow when unscrolled */
+}
+
+/* Remove filter and shadow when scrolled */
+.navScrolled .logoImage {
+  filter: none;
+}
+
+.logo:hover .logoImage {
+  border-radius: 4px 12px 4px 12px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navLinks a {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-decoration: none;
+  color: #ffffff; /* White when unscrolled */
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+}
+
+/* Dark text when scrolled */
+.navScrolled .navLinks a {
+  color: var(--charcoal);
+  text-shadow: none;
+}
+
+.navLinks a:hover {
+  color: var(--primary-red);
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-red);
+  transition: width 0.3s ease;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.05);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #ffffff; /* White when unscrolled */
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+/* Dark hamburger when scrolled */
+.navScrolled .hamburger span {
+  background: var(--charcoal);
+  box-shadow: none;
+}
+
+/* Make X button more visible when menu is open */
+.hamburgerOpen span {
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/* Structure.nyc Style Mobile Menu - Full Screen Dark Overlay */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker shroud */
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 2rem 1rem;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileNavLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mobileNavLinks li {
+  border: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+.mobileMenuOpen .mobileNavLinks li:nth-child(1) { 
+  animation: fadeInUp 0.6s ease forwards 0.1s; 
+}
+.mobileMenuOpen .mobileNavLinks li:nth-child(2) { 
+  animation: fadeInUp 0.6s ease forwards 0.2s; 
+}
+.mobileMenuOpen .mobileNavLinks li:nth-child(3) { 
+  animation: fadeInUp 0.6s ease forwards 0.3s; 
+}
+.mobileMenuOpen .mobileNavLinks li:nth-child(4) { 
+  animation: fadeInUp 0.6s ease forwards 0.4s; 
+}
+.mobileMenuOpen .mobileNavLinks li:nth-child(5) { 
+  animation: fadeInUp 0.6s ease forwards 0.5s; 
+}
+.mobileMenuOpen .mobileNavLinks li:nth-child(6) { 
+  animation: fadeInUp 0.6s ease forwards 0.6s; 
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNavLinks a {
+  display: block;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobileNavLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-red);
+  transition: width 0.3s ease;
+}
+
+.mobileNavLinks a:hover {
+  color: var(--primary-red);
+  transform: scale(1.05);
+}
+
+.mobileNavLinks a:hover::after {
+  width: 60px;
+}
+
+/* Special styling for phone number menu item - now at top */
+.mobileNavLinks .phoneMenuItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  order: -1; /* Move to top */
+}
+
+.mobileNavLinks .phoneMenuItem a {
+  font-size: 1.5rem;
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mobileNavLinks .phoneMenuItem a:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.mobileNavLinks .phoneMenuItem .phoneIcon {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.mobileNavLinks .phoneMenuItem a:hover .phoneIcon {
+  background: #ffffff;
+  color: var(--primary-red);
+}
+
+/* Remove the old overlay since we're using the menu itself as overlay */
+.mobileMenuOverlay {
+  display: none;
+}
+
+@keyframes textFlyIn {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes whaleDrop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 850px) {
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .logoIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 3px 10px 3px;
+  }
+
+  .logoIcon:hover {
+    border-radius: 3px 10px 3px 10px;
+  }
+
+  .logoImage {
+    border-radius: 10px 3px 10px 3px;
+  }
+
+  .logo:hover .logoImage {
+    border-radius: 3px 10px 3px 10px;
+  }
+
+  .logoText {
+    font-size: 25px;
+    margin-left: 5px;
+  }
+
+  .nav {
+    padding: 10px 0;
+  }
+}
+
+/* Right side container for phone and nav links */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Phone container styles */
+.phoneContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.phoneInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phoneIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-red, #d32f2f);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow when unscrolled */
+}
+
+/* Remove shadow when scrolled */
+.navScrolled .phoneIcon {
+  box-shadow: none;
+}
+
+.phoneIcon:hover {
+  transform: scale(1.05);
+  background: var(--primary-red-dark, #b71c1c);
+}
+
+.phoneDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.phoneLocation {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff; /* White when unscrolled */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow */
+  transition: color 0.3s ease;
+}
+
+/* Dark text when scrolled */
+.navScrolled .phoneLocation {
+  color: var(--charcoal, #263238);
+  text-shadow: none;
+  opacity: 0.8;
+}
+
+.phoneNumber {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff; /* White when unscrolled */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow */
+}
+
+/* Dark text when scrolled */
+.navScrolled .phoneNumber {
+  color: var(--charcoal, #263238);
+  text-shadow: none;
+}
+
+.phoneNumber:hover {
+  color: var(--primary-red, #d32f2f);
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+  .phoneContainer {
+    display: none;
+  }
+  
+  .navRight {
+    display: contents;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 858px) {
+  .navRight {
+    gap: 0px;
+  }
+}
+ 
+@media (max-width: 1024px) {
+  .phoneIcon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .phoneLocation {
+    font-size: 0.7rem;
+  }
+  
+  .phoneNumber {
+    font-size: 1rem;
+  }
+  
+  .mobileNavLinks a {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileNavLinks a {
+    font-size: 1.5rem;
+  }
+  
+  .mobilePhoneContainer {
+    top: 100px;
+  }
+}
