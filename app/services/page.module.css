@@ -1,0 +1,251 @@
+.servicesPage {
+    min-height: 100vh;
+    background: #fafafa;
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(38, 50, 56, 0.85), rgba(38, 50, 56, 0.85)), url('/images/services-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 12rem 2rem 8rem;
+    text-align: center;
+    position: relative;
+}
+
+
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+/* Services Section */
+.servicesSection {
+    padding: 6rem 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.serviceCard {
+    background: #ffffff;
+    border: 2px solid #263238;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.serviceContent {
+    position: relative;
+}
+
+.serviceNumber {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(255, 107, 53, 0.1);
+    line-height: 1;
+}
+
+.serviceTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #263238;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.serviceSubtitle {
+    font-size: 1.1rem;
+    color: #ff6b35;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.serviceDescription {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #546e7a;
+    margin-bottom: 2rem;
+}
+
+.serviceFeatures {
+    margin-bottom: 2rem;
+}
+
+.serviceFeatures h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #263238;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.serviceFeatures ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.serviceFeatures li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #546e7a;
+}
+
+.serviceFeatures li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+    font-weight: 700;
+}
+
+.serviceClients {
+    font-size: 0.95rem;
+    color: #546e7a;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(38, 50, 56, 0.1);
+}
+
+.serviceClients strong {
+    color: #263238;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: #263238;
+    color: #ffffff;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ctaContent h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.ctaContent p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: #ff6b35;
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #ff6b35;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ctaButton:hover {
+    background: transparent;
+    color: #ff6b35;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 10rem 1.5rem 6rem;
+    }
+
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .heroDescription {
+        font-size: 1.1rem;
+    }
+
+    .servicesSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .serviceCard {
+        padding: 2rem;
+    }
+
+    .serviceTitle {
+        font-size: 1.6rem;
+    }
+
+    .serviceNumber {
+        font-size: 3rem;
+    }
+
+    .ctaSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .ctaContent h2 {
+        font-size: 2rem;
+    }
+
+    .ctaContent p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+
+    .serviceTitle {
+        font-size: 1.4rem;
+    }
+
+    .serviceCard {
+        padding: 1.5rem;
+    }
+
+    .ctaContent h2 {
+        font-size: 1.6rem;
+    }
+}

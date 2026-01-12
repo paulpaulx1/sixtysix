@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import styles from './Navigation.module.css';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import styles from "./Navigation.module.css";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,15 +13,16 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (pathname === '/') {
+      // Add services page to transparent nav pages
+      if (pathname === "/" || pathname === "/services") {
         setIsScrolled(window.scrollY > 100);
       } else {
         setIsScrolled(true);
       }
     };
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   const toggleMobileMenu = () => {
@@ -29,36 +30,36 @@ export default function Navigation() {
 
     // Prevent body scrolling when menu is open
     if (!isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
   // Clean up body overflow on unmount
   useEffect(() => {
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, []);
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : ''}`}>
+    <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : ""}`}>
       <div className={styles.navContainer}>
         {/* Logo */}
-        <Link href='/' className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <div className={styles.logoIcon}>
             <Image
               className={styles.logoImage}
-              width='70'
-              height='70'
-              src='/images/logoOriginal.jpeg'
-              alt='66 Training Logo'
+              width="70"
+              height="70"
+              src="/images/logoOriginal.jpeg"
+              alt="66 Training Logo"
             />
           </div>
           <span className={styles.logoText}>66 Pro Services</span>
@@ -69,19 +70,19 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
             <li>
-              <Link href='/'>About</Link>
+              <Link href="/">About</Link>
             </li>
             <li>
-              <Link href='/services'>Services</Link>
+              <Link href="/services">Services</Link>
             </li>
             <li>
-              <Link href='/projects'>Projects</Link>
+              <Link href="/projects">Projects</Link>
             </li>
             <li>
-              <Link href='/team'>Team</Link>
+              <Link href="/team">Team</Link>
             </li>
             <li>
-              <Link href='/contact'>Contact</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -89,7 +90,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <div
           className={`${styles.hamburger} ${
-            isMobileMenuOpen ? styles.hamburgerOpen : ''
+            isMobileMenuOpen ? styles.hamburgerOpen : ""
           }`}
           onClick={toggleMobileMenu}
         >
@@ -101,38 +102,32 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         <div
           className={`${styles.mobileMenu} ${
-            isMobileMenuOpen ? styles.mobileMenuOpen : ''
+            isMobileMenuOpen ? styles.mobileMenuOpen : ""
           }`}
         >
           <ul className={styles.mobileNavLinks}>
             <li>
-              <Link href='/' onClick={closeMobileMenu}>
+              <Link href="/" onClick={closeMobileMenu}>
                 About
               </Link>
             </li>
             <li>
-              <Link
-                href='/services'
-                onClick={closeMobileMenu}
-              >
+              <Link href="/services" onClick={closeMobileMenu}>
                 Services
               </Link>
             </li>
             <li>
-              <Link href='/projects' onClick={closeMobileMenu}>
+              <Link href="/projects" onClick={closeMobileMenu}>
                 Projects
               </Link>
             </li>
             <li>
-              <Link href='/Team' onClick={closeMobileMenu}>
+              <Link href="/Team" onClick={closeMobileMenu}>
                 Team
               </Link>
             </li>
             <li>
-              <Link
-                href='/contact'
-                onClick={closeMobileMenu}
-              >
+              <Link href="/contact" onClick={closeMobileMenu}>
                 Contact
               </Link>
             </li>
