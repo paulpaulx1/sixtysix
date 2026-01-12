@@ -158,7 +158,7 @@
 }
 
 .hamburgerOpen span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .hamburgerOpen span:nth-child(2) {
@@ -166,7 +166,7 @@
 }
 
 .hamburgerOpen span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Mobile Menu Overlay */
@@ -301,10 +301,19 @@
 }
 
 /* Accessibility */
+/* Accessibility */
 .navLinks a:focus,
-.logo:focus,
 .hamburger:focus,
 .mobileNavLinks a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 5px;
+}
+
+.logo:focus {
+  outline: none;
+}
+
+.logo:focus .logoText {
   outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 5px;
 }

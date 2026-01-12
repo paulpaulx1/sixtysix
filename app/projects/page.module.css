@@ -1,0 +1,236 @@
+.projectsPage {
+    min-height: 100vh;
+    background: #fafafa;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+    color: #ffffff;
+    padding: 12rem 2rem 8rem;
+    text-align: center;
+}
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+/* Projects Section */
+.projectsSection {
+    padding: 6rem 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projectsList {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.projectCard {
+    background: #ffffff;
+    border: 2px solid #263238;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.projectCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.projectHeader {
+    margin-bottom: 1.5rem;
+}
+
+.projectMeta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.projectYear {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ff6b35;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.projectClient {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #546e7a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.projectTitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #263238;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.projectOrg {
+    font-size: 1rem;
+    color: #546e7a;
+    font-weight: 500;
+}
+
+.projectDescription {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #546e7a;
+    margin-bottom: 1.5rem;
+}
+
+.projectServices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.serviceTag {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    color: #263238;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: #263238;
+    color: #ffffff;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ctaContent h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.ctaContent p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    background: #ff6b35;
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #ff6b35;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ctaButton:hover {
+    background: transparent;
+    color: #ff6b35;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 10rem 1.5rem 6rem;
+    }
+
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .heroDescription {
+        font-size: 1.1rem;
+    }
+
+    .projectsSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .projectCard {
+        padding: 2rem;
+    }
+
+    .projectTitle {
+        font-size: 1.4rem;
+    }
+
+    .ctaSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .ctaContent h2 {
+        font-size: 2rem;
+    }
+
+    .ctaContent p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+
+    .projectCard {
+        padding: 1.5rem;
+    }
+
+    .projectTitle {
+        font-size: 1.2rem;
+    }
+
+    .projectMeta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .ctaContent h2 {
+        font-size: 1.6rem;
+    }
+}
