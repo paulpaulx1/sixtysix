@@ -13,12 +13,8 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Add services page to transparent nav pages
-      if (pathname === "/" || pathname === "/services") {
-        setIsScrolled(window.scrollY > 100);
-      } else {
-        setIsScrolled(true);
-      }
+      // Make nav transparent on scroll for ALL pages with hero images
+      setIsScrolled(window.scrollY > 100);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll);
