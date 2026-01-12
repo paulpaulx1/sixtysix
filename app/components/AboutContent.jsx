@@ -1,62 +1,75 @@
-import styles from './AboutSection.module.css';
-import Image from 'next/image';
-import AboutImage from './AboutImage';
+"use client";
 
-import StatCard from './StatCard';
+import { useEffect, useRef, useState } from "react";
+import styles from "./AboutSection.module.css";
+import AboutImage from "./AboutImage";
 
 const AboutContent = () => {
-  const stats = [
-    { number: '150+', label: 'Projects Completed' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '100%', label: 'Client Satisfaction' },
-    { number: '24/7', label: 'Project Support' },
-  ];
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const cx = (...classes) => classes.filter(Boolean).join(" ");
 
   return (
     <div className={styles.container}>
-      {/* About Content Grid - Reversed Layout */}
-      <div className={styles.aboutContent}>
-        {/* Image Section - Now First */}
-        <div className={styles.imageSection} data-element='image'>
+      <div ref={sectionRef} className={styles.aboutContent}>
+        {/* Image */}
+        <div
+          className={cx(
+            styles.imageSection,
+            hasAnimated ? styles.aboutVisible : styles.aboutHiddenLeft
+          )}
+        >
           <AboutImage />
         </div>
 
-        {/* Content Section - Now Second */}
-        <div className={styles.content} data-element='content'>
-          <h1 className={styles.title}>About 66 Professional Training Services</h1>
+        {/* Text */}
+        <div
+          className={cx(
+            styles.content,
+            hasAnimated ? styles.aboutVisibleDelayed : styles.aboutHiddenRight
+          )}
+        >
+          <h2 className={styles.title}>About 66 Professional Services</h2>
 
           <div className={styles.contentBlock}>
             <p>
-              66 Professional Training Services, LLC is a higher education services
-              organization working with colleges in the area of training &
-              workforce development. We are results orientated and believe in
-              delivering creative, effective, and practical solutions for both
-              our college customers and their business partners.
+              66 Professional Services is a comprehensive higher education
+              services organization delivering workforce development, curriculum
+              design, and project management solutions for community colleges,
+              state agencies, and federal clients nationwide.
+            </p>
+
+            <p>
+              With a team of 10+ specialists and 8+ years of proven experience,
+              we've partnered with industry leaders including Tesla, PG&E,
+              PureStorage, and NextFlex to create innovative training programs
+              that bridge education and industry. Our DVBE certification and 8A
+              program pathway position us as a trusted partner for government
+              contracts and enterprise workforce initiatives.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Divider Line */}
       <div className={styles.sectionDivider}></div>
-
-      {/* Stats Section */}
-      <div className={styles.statsSection} data-element='stats'>
-        <div className={styles.statsHeader}>
-          <div className={styles.statsTitle}>Our Track Record</div>
-        </div>
-
-        <div className={styles.statsGrid}>
-          {stats.map((statObj, i) => (
-            <StatCard
-              key={i}
-              number={statObj.number}
-              label={statObj.label}
-              index={i}
-            />
-          ))}
-        </div>
-      </div>
     </div>
   );
 };

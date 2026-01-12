@@ -1,110 +1,70 @@
-
 .aboutSection {
-  font-family: var(--font-space), sans-serif;
   background: #fafafa;
-  color: var(--charcoal);
-  line-height: 1.6;
-  position: relative;
-  padding: 12rem 2rem;
+  padding: 4rem 2rem;
   margin: 4rem 0;
-  overflow: hidden;
 }
 
 .container {
   max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  padding: 4rem 2rem;
 }
 
 /* About Content Grid */
 .aboutContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  gap: 6rem;
   align-items: center;
-  margin-bottom: 8rem;
-  margin-top: 4rem;
-  margin: 4rem 2rem 4rem 2rem;
-}
-
-/* Minimal Content Section */
-.content {
-  background: transparent;
-  padding: 0;
-  border: none;
-  position: relative;
-
-  /* Animation states */
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Clean Typography - Updated to Garamond */
-.title {
-  /* font-family: 'EB Garamond', 'Garamond', serif; */
-  color: #263238;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   margin: 0;
-  font-size: 2.5rem;
-  margin-bottom: 14px;
-  font-weight: 600; /* Remove uppercase for more elegant Garamond look */
 }
 
-.heroAccent {
-  color: #ff6b35; /* Orange accent */
+/* Content Section */
+.content {
+  /* Remove default styles - let animation classes control */
+}
+
+/* Clean Typography */
+.title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2rem;
   font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-  position: relative;
-  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: #263238;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
-
-
-/* Minimal Content Blocks */
+/* Content Block */
 .contentBlock {
-  background: transparent;
-  padding: 0;
-  border: none;
-  margin-bottom: 2.5rem;
-  position: relative;
+  margin-bottom: 0;
 }
 
 .contentBlock p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.7;
-  color: var(--scandinavian-gray);
-  font-weight: 300;
+  color: #546e7a;
+  font-weight: 400;
 }
 
-/* Simple Image Section */
+.contentBlock p:last-child {
+  margin-bottom: 0;
+}
+
+/* Image Section */
 .imageSection {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* Remove default styles - let animation classes control */
 }
-
 
 .imageContainer {
-  border: 3px solid var(--charcoal);
-  border-radius: 0;
+  border: 2px solid #263238;
   overflow: hidden;
-  box-shadow: none;
   transition: all 0.3s ease;
-  position: relative;
-  background: var(--warm-white);
 }
 
 .imageContainer:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .image {
@@ -119,193 +79,94 @@
   transform: scale(1.02);
 }
 
-/* Minimal Stats Section */
-.statsSection {
-  background: transparent;
-  padding: 0;
-  border: none;
-  position: relative;
-  margin: 4rem 0;
-  box-shadow: none;
+.sectionDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(38, 50, 56, 0.15);
+  margin: 6rem 0 0 0;
+}
 
-  /* Animation states */
+/* Scroll Animations */
+.aboutHiddenLeft {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.aboutHiddenRight {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.aboutVisible {
   opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  transform: translateX(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.statsHeader {
-  text-align: center;
-  margin-bottom: 6rem;
-}
-
-.statsTitle {
-  
-  font-size: 2.8rem;
-  font-weight: 300;
-  color: var(--charcoal);
-  letter-spacing: -0.02em;
-  position: relative;
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  margin-bottom: 4rem;
-  padding: 0 1rem;
-}
-
-/* Minimal Circle Accents - Very Subtle */
-.aboutCircles,
-.statsCircles {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 3rem;
-  cursor: pointer;
-}
-
-.circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  opacity: 0.6;
-}
-
-.aboutCircles:hover .circle,
-.statsCircles:hover .circle {
-  transform: scale(1.3);
+.aboutVisibleDelayed {
   opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: 0.15s;
 }
 
-/* Remove All Kinetic Background */
-.kineticBackground {
-  display: none;
-}
-
-/* Spacious responsive design */
-@media (max-width: 1024px) {
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .aboutContent {
-    gap: 6rem;
-    margin-top: 3rem;
-  }
-
-  .statsTitle {
-    font-size: 2.4rem;
-  }
-
-  .aboutSection {
-    padding: 10rem 2rem;
-  }
-
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .aboutSection {
-    padding: 8rem 1rem;
+    padding: 6rem 1.5rem;
+    margin: 3rem 0;
   }
 
   .aboutContent {
     grid-template-columns: 1fr;
-    gap: 4rem;
-    margin-top: 2rem;
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    text-align: center;
   }
 
   .content {
     text-align: center;
   }
 
-  .title {
-    font-size: 2.5rem;
-  }
-
   .contentBlock p {
-    font-size: 1.1rem;
-  }
-
-  .statsSection {
-    margin: 6rem 0;
-  }
-
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 0 2rem;
+    font-size: 1rem;
   }
 
   .image {
-    height: 350px;
-  }
-
-  .statsTitle {
-    font-size: 2rem;
+    height: 400px;
   }
 }
 
 @media (max-width: 480px) {
   .aboutSection {
-    padding: 6rem 1rem;
-  }
-
-  .aboutContent {
-    margin-top: 1rem;
+    padding: 4rem 1rem;
+    margin: 2rem 0;
   }
 
   .title {
-    font-size: 2.2rem;
-  }
-
-  .statsTitle {
-    font-size: 1.8rem;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1.5rem;
-  }
-
-  .circle {
-    width: 10px;
-    height: 10px;
-  }
-
-  .aboutCircles,
-  .statsCircles {
-    gap: 12px;
+    font-size: 1.5rem;
   }
 
   .contentBlock p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .image {
+    height: 300px;
   }
 }
 
-.sectionDivider {
-  width: calc(100% - 4rem);
-  height: 1px;
-  background: rgba(38, 50, 56, 0.2);
-  margin: 4rem auto;
-}
-
-.title {
-  font-family: 'Anton', 'Impact', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 400;
-  margin-bottom: 2.5rem;
-  color: var(--charcoal);
-  line-height: 1.1;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aboutHiddenLeft,
+  .aboutHiddenRight,
+  .aboutVisible,
+  .aboutVisibleDelayed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

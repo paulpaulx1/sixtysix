@@ -6,7 +6,7 @@ const AboutImage = () => {
   return (
     <div className={styles.imageContainer}>
       <Image
-        src='/images/66collage.jpeg'
+        src='/images/training.jpg'
         alt='66 Training Team Collage'
         className={styles.image}
         width={600}

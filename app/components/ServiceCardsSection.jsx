@@ -1,73 +1,69 @@
-import styles from './ServiceCardsSection.module.css';
-import ServiceCard from './ServiceCard';
+import styles from "./ServiceCardsSection.module.css";
+import ServiceCard from "./ServiceCard";
 
 const ServiceCardsSection = () => {
   const services = [
     {
-      iconType: 'house',
-      blueprint: 'RES_001',
-      title: 'Workforce Development',
+      iconType: "house",
+      blueprint: "WFD_001",
+      title: "Workforce Development",
       description:
-        'Licensed Indianapolis general contractors specializing in home additions, remodeling, and custom residential construction throughout central Indiana.',
-      linkUrl:
-        '/indianapolis-general-contractor#residential-general-contractor-indianapolis',
-      linkText: 'Learn More About Residential Services',
+        "Comprehensive workforce training programs connecting education and industry. We design and implement job readiness initiatives that prepare students for careers with employers like Tesla, PG&E, and NextFlex.",
+      linkUrl: "/services/workforce-development",
+      linkText: "Learn More About Workforce Development",
     },
     {
-      iconType: 'buildings',
-      blueprint: 'COM_001',
-      title: 'Program Management',
+      iconType: "buildings",
+      blueprint: "PGM_001",
+      title: "Program Management",
       description:
-        'Professional commercial construction services for Indianapolis businesses including office build-outs, retail spaces, and tenant improvements.',
-      linkUrl:
-        '/indianapolis-general-contractor#commercial-general-contractors-indianapolis',
-      linkText: 'Explore Commercial Services',
+        "Strategic oversight and execution of large-scale higher education initiatives. Our team manages multi-year programs ensuring on-time delivery and measurable outcomes for community colleges and state agencies.",
+      linkUrl: "/services/program-management",
+      linkText: "Explore Program Management Services",
     },
     {
-      iconType: 'hammer',
-      blueprint: 'MIL_001',
-      title: 'Project Management',
+      iconType: "hammer",
+      blueprint: "PRJ_001",
+      title: "Project Management",
       description:
-        'Master craftsmen creating custom cabinetry, built-ins, architectural millwork, and precision woodworking for Indianapolis homes and businesses.',
-      linkUrl:
-        '/indianapolis-general-contractor#custom-millwork-woodworking-indianapolis',
-      linkText: 'View Millwork Services',
+        "Expert project coordination for higher education and workforce training initiatives. We deliver results-driven solutions managing timelines, budgets, and stakeholder relationships across complex educational projects.",
+      linkUrl: "/services/project-management",
+      linkText: "View Project Management Expertise",
     },
     {
-      iconType: 'ruler',
-      blueprint: 'OUT_001',
-      title: 'Curriculum Support',
+      iconType: "ruler",
+      blueprint: "CUR_001",
+      title: "Curriculum Development",
       description:
-        'Custom deck building, pergolas, patios, and outdoor living spaces designed for Indianapolis area homes with weather-resistant construction.',
-      linkUrl:
-        '/indianapolis-general-contractor#outdoor-living-deck-building-indianapolis',
-      linkText: 'See Outdoor Living Options',
+        "Professional curriculum design services creating industry-aligned training programs. Our curriculum designers develop comprehensive course materials that meet both academic standards and employer workforce needs.",
+      linkUrl: "/services/curriculum-development",
+      linkText: "See Curriculum Design Services",
     },
     {
-      iconType: 'toolbox',
-      blueprint: 'CAB_001',
-      title: 'Training Delivery',
+      iconType: "toolbox",
+      blueprint: "TRN_001",
+      title: "Training Delivery",
       description:
-        'Bespoke storage solutions designed and built to maximize space while complementing your unique style and functional needs.',
-      linkUrl: null,
-      linkText: null,
+        "Implementation and facilitation of workforce training programs. We deliver engaging, effective instruction that bridges the gap between classroom learning and real-world job requirements.",
+      linkUrl: "/services/training-delivery",
+      linkText: "Learn About Training Delivery",
     },
     {
-      iconType: 'wrench',
-      blueprint: 'DES_001',
-      title: 'Employer Engagement',
+      iconType: "wrench",
+      blueprint: "EMP_001",
+      title: "Employer Engagement",
       description:
-        'Professional design guidance to help you visualize and plan your project from initial concept to final execution.',
-      linkUrl: null,
-      linkText: null,
+        "Strategic partnerships connecting education institutions with industry leaders. We facilitate employer relationships that create meaningful workforce pathways and sustainable talent pipelines.",
+      linkUrl: "/services/employer-engagement",
+      linkText: "Explore Employer Engagement",
     },
   ];
 
   return (
-    <section className={styles.servicesSection} data-element='services'>
+    <section className={styles.servicesSection} data-element="services">
       <div className={styles.container}>
         <div className={styles.servicesHeader}>
-          <h2 className={styles.servicesTitle}>Services</h2>
+          <h2 className={styles.servicesTitle}>Our Services</h2>
         </div>
 
         <div className={styles.servicesGrid}>

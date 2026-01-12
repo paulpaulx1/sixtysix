@@ -61,7 +61,7 @@ export default function Navigation() {
               alt='66 Training Logo'
             />
           </div>
-          <span className={styles.logoText}>66 Professional Training Services</span>
+          <span className={styles.logoText}>66 Pro Services</span>
         </Link>
 
         {/* Phone Number and Navigation Container */}
