@@ -1,0 +1,238 @@
+.contactPage {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+  color: #ffffff;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+/* Contact Section */
+.contactSection {
+  padding: 6rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+}
+
+/* Contact Info */
+.contactInfo {
+  background: #ffffff;
+  border: 2px solid #263238;
+  padding: 3rem;
+}
+
+.contactInfo h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.infoBlock {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(38, 50, 56, 0.1);
+}
+
+.infoBlock:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.infoBlock h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #263238;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.infoBlock a {
+  color: #ff6b35;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.infoBlock a:hover {
+  color: #263238;
+}
+
+.infoBlock p {
+  color: #546e7a;
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+/* Contact Form */
+.contactForm {
+  background: #ffffff;
+  border: 2px solid #263238;
+  padding: 3rem;
+}
+
+.contactForm h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #263238;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  background: #ff6b35;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  border: 2px solid #ff6b35;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: transparent;
+  color: #ff6b35;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #d4edda;
+  border: 2px solid #28a745;
+  color: #155724;
+  font-weight: 500;
+}
+
+.errorMessage {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f8d7da;
+  border: 2px solid #dc3545;
+  color: #721c24;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 10rem 1.5rem 6rem;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroDescription {
+    font-size: 1.1rem;
+  }
+
+  .contactSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 1.5rem;
+  }
+
+  .contactInfo h2,
+  .contactForm h2 {
+    font-size: 1.5rem;
+  }
+}
