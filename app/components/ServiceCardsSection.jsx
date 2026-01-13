@@ -9,7 +9,7 @@ const ServiceCardsSection = () => {
       title: "Workforce Development",
       description:
         "Comprehensive workforce training programs connecting education and industry. We design and implement job readiness initiatives that prepare students for careers with employers like Tesla, PG&E, and NextFlex.",
-      linkUrl: "/services/workforce-development",
+      linkUrl: "/services#workforce-development",
       linkText: "Learn More About Workforce Development",
     },
     {
@@ -18,7 +18,7 @@ const ServiceCardsSection = () => {
       title: "Program Management",
       description:
         "Strategic oversight and execution of large-scale higher education initiatives. Our team manages multi-year programs ensuring on-time delivery and measurable outcomes for community colleges and state agencies.",
-      linkUrl: "/services/program-management",
+      linkUrl: "/services#program-management",
       linkText: "Explore Program Management Services",
     },
     {
@@ -27,7 +27,7 @@ const ServiceCardsSection = () => {
       title: "Project Management",
       description:
         "Expert project coordination for higher education and workforce training initiatives. We deliver results-driven solutions managing timelines, budgets, and stakeholder relationships across complex educational projects.",
-      linkUrl: "/services/project-management",
+      linkUrl: "/services#project-management",
       linkText: "View Project Management Expertise",
     },
     {
@@ -36,7 +36,7 @@ const ServiceCardsSection = () => {
       title: "Curriculum Development",
       description:
         "Professional curriculum design services creating industry-aligned training programs. Our curriculum designers develop comprehensive course materials that meet both academic standards and employer workforce needs.",
-      linkUrl: "/services/curriculum-development",
+      linkUrl: "/services#curriculum-development",
       linkText: "See Curriculum Design Services",
     },
     {
@@ -45,7 +45,7 @@ const ServiceCardsSection = () => {
       title: "Training Delivery",
       description:
         "Implementation and facilitation of workforce training programs. We deliver engaging, effective instruction that bridges the gap between classroom learning and real-world job requirements.",
-      linkUrl: "/services/training-delivery",
+      linkUrl: "/services#training-delivery",
       linkText: "Learn About Training Delivery",
     },
     {
@@ -54,7 +54,7 @@ const ServiceCardsSection = () => {
       title: "Employer Engagement",
       description:
         "Strategic partnerships connecting education institutions with industry leaders. We facilitate employer relationships that create meaningful workforce pathways and sustainable talent pipelines.",
-      linkUrl: "/services/employer-engagement",
+      linkUrl: "/services#employer-engagement",
       linkText: "Explore Employer Engagement",
     },
   ];
