@@ -49,19 +49,16 @@ export default function Navigation() {
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <Image
-              className={styles.logoImage}
-              width="70"
-              height="70"
-              src="/images/logoOriginal.jpeg"
-              alt="66 Training Logo"
-            />
-          </div>
-          <span className={styles.logoText}>66 Pro Services</span>
+          <Image
+            className={styles.logoImage}
+            width={180}
+            height={60}
+            src="/66_logo.png"
+            alt="66 Professional Services Logo"
+          />
         </Link>
 
-        {/* Phone Number and Navigation Container */}
+        {/* Navigation Container */}
         <div className={styles.navRight}>
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
@@ -118,7 +115,7 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <Link href="/Team" onClick={closeMobileMenu}>
+              <Link href="/team" onClick={closeMobileMenu}>
                 Team
               </Link>
             </li>
