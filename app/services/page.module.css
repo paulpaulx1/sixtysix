@@ -1,6 +1,6 @@
 .servicesPage {
     min-height: 100vh;
-    background: #fafafa;
+    background: #f5f5f5;
 }
 
 /* Hero Section */
@@ -36,7 +36,8 @@
 
 /* Services Section */
 .servicesSection {
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
+    background: #fafafa;
 }
 
 .container {
@@ -44,19 +45,45 @@
     margin: 0 auto;
 }
 
+/* Service Card with Animations */
 .serviceCard {
     background: #ffffff;
-    border: 2px solid #263238;
-    margin-bottom: 3rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 4rem;
     overflow: hidden;
     display: grid;
     grid-template-columns: 400px 1fr;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+}
+
+.serviceCardHidden {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.serviceCardVisible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .serviceCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: #263238;
 }
 
 /* Alternate layout for even cards */
@@ -79,28 +106,34 @@
     height: 100%;
     min-height: 350px;
     overflow: hidden;
+    background: #f5f5f5;
 }
 
 .serviceImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .serviceCard:hover .serviceImage {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .serviceNumber {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     font-size: 4rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.serviceCard:hover .serviceNumber {
+    transform: scale(1.1);
 }
 
 /* Content section */
@@ -109,6 +142,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #ffffff;
 }
 
 .serviceTitle {
@@ -117,13 +151,20 @@
     color: #263238;
     margin-bottom: 0.5rem;
     letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+}
+
+.serviceCard:hover .serviceTitle {
+    color: #1a1a1a;
 }
 
 .serviceSubtitle {
-    font-size: 1.1rem;
-    color: #ff6b35;
+    font-size: 1rem;
+    color: #546e7a;
     margin-bottom: 1.5rem;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .serviceDescription {
@@ -138,7 +179,7 @@
 }
 
 .serviceFeatures h3 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #263238;
     text-transform: uppercase;
@@ -158,13 +199,18 @@
     position: relative;
     color: #546e7a;
     font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.serviceCard:hover .serviceFeatures li {
+    color: #263238;
 }
 
 .serviceFeatures li::before {
     content: '→';
     position: absolute;
     left: 0;
-    color: #ff6b35;
+    color: #263238;
     font-weight: 700;
 }
 
@@ -172,7 +218,7 @@
     font-size: 0.9rem;
     color: #546e7a;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(38, 50, 56, 0.1);
+    border-top: 1px solid #e0e0e0;
 }
 
 .serviceClients strong {
@@ -208,13 +254,14 @@
 
 .ctaButton {
     display: inline-block;
-    background: #ff6b35;
-    color: #ffffff;
+    background: #ffffff;
+    color: #263238;
     padding: 1rem 2.5rem;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    border: 2px solid #ff6b35;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -222,7 +269,7 @@
 
 .ctaButton:hover {
     background: transparent;
-    color: #ff6b35;
+    color: #ffffff;
     transform: translateY(-2px);
 }
 
@@ -261,7 +308,7 @@
     }
 
     .servicesSection {
-        padding: 4rem 1.5rem;
+        padding: 6rem 1.5rem;
     }
 
     .serviceContent {
@@ -308,5 +355,16 @@
 
     .ctaContent h2 {
         font-size: 1.6rem;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    .serviceCardHidden,
+    .serviceCardVisible {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }

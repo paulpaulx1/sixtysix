@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin: 20px;
+  margin: 34px 20px;
 }
 
 /* Content Card - no border, just background */

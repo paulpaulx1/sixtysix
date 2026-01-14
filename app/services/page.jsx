@@ -1,14 +1,36 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Services | 66 Professional Services",
-  description:
-    "Comprehensive higher education services including workforce development, curriculum design, project management, and training delivery for community colleges, state agencies, and federal clients.",
-};
-
 export default function ServicesPage() {
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observers = cardRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => new Set(prev).add(index));
+          }
+        },
+        { threshold: 0.15 }
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect());
+    };
+  }, []);
+
   const services = [
     {
       id: "workforce-development",
@@ -122,7 +144,12 @@ export default function ServicesPage() {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={styles.serviceCard}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className={`${styles.serviceCard} ${
+                visibleCards.has(index)
+                  ? styles.serviceCardVisible
+                  : styles.serviceCardHidden
+              }`}
               id={service.id}
             >
               <div className={styles.serviceImageWrapper}>
