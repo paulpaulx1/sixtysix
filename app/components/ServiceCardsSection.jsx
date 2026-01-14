@@ -1,7 +1,30 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import styles from "./ServiceCardsSection.module.css";
 import ServiceCard from "./ServiceCard";
 
 const ServiceCardsSection = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
   const services = [
     {
       iconType: "house",
@@ -60,23 +83,32 @@ const ServiceCardsSection = () => {
   ];
 
   return (
-    <section className={styles.servicesSection} data-element="services">
+    <section 
+      ref={sectionRef}
+      className={styles.servicesSection} 
+      data-element="services"
+    >
       <div className={styles.container}>
-        <div className={styles.servicesHeader}>
+        <div className={`${styles.servicesHeader} ${hasAnimated ? styles.headerVisible : styles.headerHidden}`}>
           <h2 className={styles.servicesTitle}>Our Services</h2>
         </div>
 
         <div className={styles.servicesGrid}>
           {services.map((service, index) => (
-            <ServiceCard
+            <div
               key={index}
-              iconType={service.iconType}
-              blueprint={service.blueprint}
-              title={service.title}
-              description={service.description}
-              linkUrl={service.linkUrl}
-              linkText={service.linkText}
-            />
+              className={`${styles.cardWrapper} ${hasAnimated ? styles.cardVisible : styles.cardHidden}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <ServiceCard
+                iconType={service.iconType}
+                blueprint={service.blueprint}
+                title={service.title}
+                description={service.description}
+                linkUrl={service.linkUrl}
+                linkText={service.linkText}
+              />
+            </div>
           ))}
         </div>
       </div>

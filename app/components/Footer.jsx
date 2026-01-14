@@ -13,13 +13,13 @@ const Footer = () => {
             <div className={styles.logoWrapper}>
               <Image
                 className={styles.logoImage}
-                width={60}
-                height={60}
-                src="/images/logoOriginal.jpeg"
+                width={500}
+                height={200}
+                src="/66_logo.png"
                 alt="66 Professional Services Logo"
               />
             </div>
-            <h3 className={styles.companyName}>66 Professional Services</h3>
+            {/* <h3 className={styles.companyName}>66 Professional Services</h3> */}
             <p className={styles.tagline}>
               California's Leading Higher Education & Workforce Development
               Partner
@@ -36,32 +36,32 @@ const Footer = () => {
             <h4 className={styles.columnTitle}>Services</h4>
             <ul className={styles.linksList}>
               <li>
-                <Link href="/services/workforce-development">
+                <Link href="/services#workforce-development">
                   Workforce Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/program-management">
+                <Link href="/services#program-management">
                   Program Management
                 </Link>
               </li>
               <li>
-                <Link href="/services/project-management">
+                <Link href="/services#project-management">
                   Project Management
                 </Link>
               </li>
               <li>
-                <Link href="/services/curriculum-development">
+                <Link href="/services#curriculum-development">
                   Curriculum Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/training-delivery">
+                <Link href="/services#training-delivery">
                   Training Delivery
                 </Link>
               </li>
               <li>
-                <Link href="/services/employer-engagement">
+                <Link href="/services#employer-engagement">
                   Employer Engagement
                 </Link>
               </li>
@@ -112,12 +112,13 @@ const Footer = () => {
             © 2025 66 Professional Services, LLC
           </p>
           <p className={styles.designedBy}>
+            Designed by{" "}
             <a
               href="https://paxmedia.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Designed by Pax Media
+              Pax Media
             </a>
           </p>
         </div>

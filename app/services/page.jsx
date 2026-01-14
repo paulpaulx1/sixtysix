@@ -107,7 +107,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Our Services</h1>
+          <h1 className={styles.heroTitle}>What We Do</h1>
           <p className={styles.heroDescription}>
             Comprehensive higher education services delivering workforce
             development, curriculum design, and project management solutions for

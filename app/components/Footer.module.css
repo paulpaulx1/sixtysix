@@ -29,10 +29,12 @@
 
 .logoWrapper {
   margin-bottom: 0.5rem;
+  width: 200px;
 }
 
 .logoImage {
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
   filter: brightness(0) invert(1);
 }
 
@@ -191,6 +193,10 @@
     align-items: center;
   }
 
+  .logoWrapper {
+    width: 120px;
+  }
+
   .tagline {
     max-width: none;
   }
@@ -212,6 +218,10 @@
 }
 
 @media (max-width: 480px) {
+  .logoWrapper {
+    width: 100px;
+  }
+
   .companyName {
     font-size: 1rem;
   }

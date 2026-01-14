@@ -3,11 +3,9 @@
 .servicesSection {
   background: var(--blueprint-blue);
   color: var(--warm-white);
-  padding: 2rem 2rem;
+  padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
-  opacity: 1;
-  transition: opacity 0.5s ease;
 }
 
 /* Blueprint grid background */
@@ -34,9 +32,33 @@
   z-index: 2;
 }
 
+/* Header Animations */
 .servicesHeader {
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.headerHidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .servicesTitle {
@@ -62,21 +84,39 @@
   border-radius: 2px;
 }
 
-.servicesSubtitle {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  font-family: var(--font-space), monospace;
-}
-
+/* Grid */
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
+}
+
+/* Card Wrapper Animations */
+.cardWrapper {
+  width: 100%;
+}
+
+.cardHidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive design */
@@ -100,11 +140,6 @@
     font-size: 2rem;
   }
 
-  .servicesSubtitle {
-    font-size: 1rem;
-    padding: 1.5rem;
-  }
-
   .servicesGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -125,15 +160,24 @@
     letter-spacing: 2px;
   }
 
-  .servicesTitle::after {
-    display: none;
-  }
-
-  .servicesSubtitle {
-    padding: 1rem;
+  .servicesTitle::before {
+    width: 60px;
   }
 
   .servicesHeader {
     margin-bottom: 2rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+  .headerHidden,
+  .headerVisible,
+  .cardHidden,
+  .cardVisible {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }
