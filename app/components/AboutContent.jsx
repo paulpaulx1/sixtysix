@@ -40,10 +40,11 @@ const AboutContent = () => {
           <AboutImage />
         </div>
 
-        {/* Text */}
+        {/* Text - now in a card */}
         <div
           className={cx(
             styles.content,
+            styles.contentCard,
             hasAnimated ? styles.aboutVisibleDelayed : styles.aboutHiddenRight
           )}
         >
@@ -68,8 +69,6 @@ const AboutContent = () => {
           </div>
         </div>
       </div>
-
-      <div className={styles.sectionDivider}></div>
     </div>
   );
 };
