@@ -188,3 +188,17 @@
     font-size: 0.85rem;
   }
 }
+
+/* Video poster/placeholder */
+.videoPoster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  /* OR if you have a frame from the video: */
+  /* background: url('/hero-poster.jpg') center/cover no-repeat; */
+  z-index: 1;
+  pointer-events: none;
+}

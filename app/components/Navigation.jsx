@@ -13,7 +13,6 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Make nav transparent on scroll for ALL pages with hero images
       setIsScrolled(window.scrollY > 100);
     };
     handleScroll();
@@ -24,7 +23,6 @@ export default function Navigation() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
 
-    // Prevent body scrolling when menu is open
     if (!isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -37,7 +35,6 @@ export default function Navigation() {
     document.body.style.overflow = "unset";
   };
 
-  // Clean up body overflow on unmount
   useEffect(() => {
     return () => {
       document.body.style.overflow = "unset";
@@ -62,19 +59,19 @@ export default function Navigation() {
         <div className={styles.navRight}>
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
-            <li>
+            <li className={styles.navItem}>
               <Link href="/">About</Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link href="/services">Services</Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link href="/projects">Projects</Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link href="/team">Team</Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link href="/contact">Contact</Link>
             </li>
           </ul>
@@ -99,27 +96,27 @@ export default function Navigation() {
           }`}
         >
           <ul className={styles.mobileNavLinks}>
-            <li>
+            <li className={styles.mobileNavItem}>
               <Link href="/" onClick={closeMobileMenu}>
                 About
               </Link>
             </li>
-            <li>
+            <li className={styles.mobileNavItem}>
               <Link href="/services" onClick={closeMobileMenu}>
                 Services
               </Link>
             </li>
-            <li>
+            <li className={styles.mobileNavItem}>
               <Link href="/projects" onClick={closeMobileMenu}>
                 Projects
               </Link>
             </li>
-            <li>
+            <li className={styles.mobileNavItem}>
               <Link href="/team" onClick={closeMobileMenu}>
                 Team
               </Link>
             </li>
-            <li>
+            <li className={styles.mobileNavItem}>
               <Link href="/contact" onClick={closeMobileMenu}>
                 Contact
               </Link>
