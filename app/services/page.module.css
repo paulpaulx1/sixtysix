@@ -1,3 +1,52 @@
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .servicesPage {
     min-height: 100vh;
     background: #f5f5f5;
@@ -25,6 +74,11 @@
     font-weight: 700;
     margin-bottom: 1.5rem;
     letter-spacing: 0.02em;
+    opacity: 0;
+}
+
+.heroVisible .heroTitle {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .heroDescription {
@@ -32,6 +86,11 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
+    opacity: 0;
+}
+
+.heroVisible .heroDescription {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 /* Services Section */
@@ -55,29 +114,12 @@
     display: grid;
     grid-template-columns: 400px 1fr;
     transition: all 0.4s ease;
-}
-
-.serviceCardHidden {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
 }
 
 .serviceCardVisible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .serviceCard:hover {
@@ -152,6 +194,11 @@
     margin-bottom: 0.5rem;
     letter-spacing: 0.02em;
     transition: color 0.3s ease;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceTitle {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
 
 .serviceCard:hover .serviceTitle {
@@ -165,6 +212,11 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceSubtitle {
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
 }
 
 .serviceDescription {
@@ -172,10 +224,20 @@
     line-height: 1.7;
     color: #546e7a;
     margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceDescription {
+    animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
 
 .serviceFeatures {
     margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceFeatures {
+    animation: fadeInUp 0.6s ease-out 0.5s forwards;
 }
 
 .serviceFeatures h3 {
@@ -219,6 +281,11 @@
     color: #546e7a;
     padding-top: 1.5rem;
     border-top: 1px solid #e0e0e0;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceClients {
+    animation: fadeInUp 0.6s ease-out 0.6s forwards;
 }
 
 .serviceClients strong {
@@ -231,6 +298,12 @@
     color: #ffffff;
     padding: 6rem 2rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.ctaSection.ctaVisible {
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .ctaContent {
@@ -243,6 +316,11 @@
     font-weight: 600;
     margin-bottom: 1rem;
     letter-spacing: 0.02em;
+    opacity: 0;
+}
+
+.ctaVisible .ctaContent h2 {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
 
 .ctaContent p {
@@ -250,6 +328,11 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.ctaVisible .ctaContent p {
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
 }
 
 .ctaButton {
@@ -265,6 +348,11 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    opacity: 0;
+}
+
+.ctaVisible .ctaButton {
+    animation: scaleIn 0.6s ease-out 0.4s forwards;
 }
 
 .ctaButton:hover {
@@ -361,10 +449,21 @@
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
 
-    .serviceCardHidden,
-    .serviceCardVisible {
+    .heroVisible .heroTitle,
+    .heroVisible .heroDescription,
+    .serviceCard,
+    .serviceCardVisible,
+    .serviceCardVisible .serviceTitle,
+    .serviceCardVisible .serviceSubtitle,
+    .serviceCardVisible .serviceDescription,
+    .serviceCardVisible .serviceFeatures,
+    .serviceCardVisible .serviceClients,
+    .ctaSection.ctaVisible,
+    .ctaVisible .ctaContent h2,
+    .ctaVisible .ctaContent p,
+    .ctaVisible .ctaButton {
+        animation: none;
         opacity: 1;
         transform: none;
-        animation: none;
     }
 }

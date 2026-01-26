@@ -7,8 +7,18 @@ import styles from "./page.module.css";
 
 export default function ServicesPage() {
   const [visibleCards, setVisibleCards] = useState(new Set());
+  const [heroVisible, setHeroVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
   const cardRefs = useRef([]);
+  const heroRef = useRef(null);
+  const ctaRef = useRef(null);
 
+  // Hero animation on mount
+  useEffect(() => {
+    setHeroVisible(true);
+  }, []);
+
+  // Service cards observer
   useEffect(() => {
     const observers = cardRefs.current.map((ref, index) => {
       if (!ref) return null;
@@ -19,7 +29,7 @@ export default function ServicesPage() {
             setVisibleCards((prev) => new Set(prev).add(index));
           }
         },
-        { threshold: 0.15 }
+        { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
       );
 
       observer.observe(ref);
@@ -29,6 +39,23 @@ export default function ServicesPage() {
     return () => {
       observers.forEach((observer) => observer?.disconnect());
     };
+  }, []);
+
+  // CTA observer
+  useEffect(() => {
+    if (!ctaRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCtaVisible(true);
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(ctaRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const services = [
@@ -127,7 +154,10 @@ export default function ServicesPage() {
   return (
     <main className={styles.servicesPage}>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      <section
+        ref={heroRef}
+        className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}
+      >
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>What We Do</h1>
           <p className={styles.heroDescription}>
@@ -146,9 +176,7 @@ export default function ServicesPage() {
               key={service.id}
               ref={(el) => (cardRefs.current[index] = el)}
               className={`${styles.serviceCard} ${
-                visibleCards.has(index)
-                  ? styles.serviceCardVisible
-                  : styles.serviceCardHidden
+                visibleCards.has(index) ? styles.serviceCardVisible : ""
               }`}
               id={service.id}
             >
@@ -189,7 +217,10 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={styles.ctaSection}>
+      <section
+        ref={ctaRef}
+        className={`${styles.ctaSection} ${ctaVisible ? styles.ctaVisible : ""}`}
+      >
         <div className={styles.ctaContent}>
           <h2>Ready to Partner With Us?</h2>
           <p>
