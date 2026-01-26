@@ -15,6 +15,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
+
 }
 
 /* About Content Grid */
@@ -24,7 +25,7 @@
   gap: 8rem;
   align-items: center;
   margin-bottom: 8rem;
-  margin-top: 4rem;
+  margin-top: 10rem;
   margin: 4rem 2rem 4rem 2rem;
 }
 

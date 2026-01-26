@@ -9,7 +9,7 @@ export default function Hero() {
 
       <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
-          <h1>
+          <h1 className={styles.heroHeading}>
             66 <span className={styles.heroAccent}>Professional</span> Services
           </h1>
           <p className={styles.heroSubtitle}>

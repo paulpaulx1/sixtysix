@@ -1,64 +1,78 @@
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .aboutSection {
   background: #fafafa;
   padding: 12rem 2rem 8rem;
+  /* Increased top padding from 8rem to 12rem */
   margin: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 4rem;
 }
 
 /* About Content Grid */
 .aboutContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
   align-items: center;
-  margin: 34px 20px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-/* Content Card - no border, just background */
-.contentCard {
-  background: transparent;
-  padding: 0;
-  transition: all 0.3s ease;
-}
-
-/* Clean Typography with border-bottom */
-.title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  color: #263238;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  border-bottom: 2px solid #767676;
-  text-transform: uppercase;
-}
-
-/* Content Block */
-.contentBlock {
-  margin-bottom: 0;
-}
-
-.contentBlock p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-  color: #546e7a;
-  font-weight: 400;
-}
-
-.contentBlock p:last-child {
-  margin-bottom: 0;
+.aboutContent.visible {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* Image Section */
 .imageSection {
   position: relative;
+  opacity: 0;
+}
+
+.aboutContent.visible .imageSection {
+  animation: fadeInLeft 0.8s ease-out 0.2s forwards;
 }
 
 .imageContainer {
@@ -87,34 +101,64 @@
   transform: scale(1.02);
 }
 
-/* Scroll Animations */
-.aboutHiddenLeft {
+/* Content Section */
+.content {
   opacity: 0;
-  transform: translateX(-30px);
 }
 
-.aboutHiddenRight {
+.aboutContent.visible .content {
+  animation: fadeInRight 0.8s ease-out 0.2s forwards;
+}
+
+/* Clean Typography with border-bottom */
+.title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  color: #263238;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid #767676;
+  text-transform: uppercase;
   opacity: 0;
-  transform: translateX(30px);
 }
 
-.aboutVisible {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.aboutContent.visible .title {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
 
-.aboutVisibleDelayed {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  transition-delay: 0.15s;
+/* Content Block */
+.contentBlock {
+  margin-bottom: 0;
+}
+
+.contentBlock p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #546e7a;
+  font-weight: 400;
+  opacity: 0;
+}
+
+.aboutContent.visible .contentBlock p:nth-of-type(1) {
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.aboutContent.visible .contentBlock p:nth-of-type(2) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.contentBlock p:last-child {
+  margin-bottom: 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .aboutSection {
-    padding: 8rem 1.5rem 6rem;
+    padding: 6rem 1.5rem;
   }
 
   .aboutContent {
@@ -139,7 +183,7 @@
 
 @media (max-width: 480px) {
   .aboutSection {
-    padding: 6rem 1rem 4rem;
+    padding: 5rem 1rem;
   }
 
   .title {
@@ -158,12 +202,14 @@
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
-  .aboutHiddenLeft,
-  .aboutHiddenRight,
-  .aboutVisible,
-  .aboutVisibleDelayed {
+  .aboutContent,
+  .aboutContent.visible,
+  .aboutContent.visible .imageSection,
+  .aboutContent.visible .content,
+  .aboutContent.visible .title,
+  .aboutContent.visible .contentBlock p {
+    animation: none;
     opacity: 1;
     transform: none;
-    transition: none;
   }
 }

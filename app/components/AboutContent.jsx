@@ -5,7 +5,7 @@ import styles from "./AboutSection.module.css";
 import AboutImage from "./AboutImage";
 
 const AboutContent = () => {
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -14,40 +14,32 @@ const AboutContent = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setHasAnimated(true);
-          observer.disconnect();
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      },
     );
 
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const cx = (...classes) => classes.filter(Boolean).join(" ");
-
   return (
     <div className={styles.container}>
-      <div ref={sectionRef} className={styles.aboutContent}>
+      <div
+        ref={sectionRef}
+        className={`${styles.aboutContent} ${isVisible ? styles.visible : ""}`}
+      >
         {/* Image */}
-        <div
-          className={cx(
-            styles.imageSection,
-            hasAnimated ? styles.aboutVisible : styles.aboutHiddenLeft
-          )}
-        >
+        <div className={styles.imageSection}>
           <AboutImage />
         </div>
 
-        {/* Text - now in a card */}
-        <div
-          className={cx(
-            styles.content,
-            styles.contentCard,
-            hasAnimated ? styles.aboutVisibleDelayed : styles.aboutHiddenRight
-          )}
-        >
+        {/* Text */}
+        <div className={styles.content}>
           <h2 className={styles.title}>About 66 Professional Services</h2>
 
           <div className={styles.contentBlock}>
