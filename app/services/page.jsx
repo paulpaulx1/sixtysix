@@ -64,14 +64,15 @@ export default function ServicesPage() {
       title: "Workforce Development",
       subtitle: "Building Tomorrow's Workforce Today",
       description:
-        "We design and implement comprehensive workforce training programs that connect education with industry needs. Our job readiness initiatives prepare students for successful careers with leading employers.",
+        "We design and implement comprehensive workforce development programs that prepare students for high-demand careers while meeting employer talent needs. Our industry-aligned training initiatives create clear pathways from classrooms to successful employment with leading employers like Tesla, PG&E, and NextFlex.",
       features: [
-        "Industry-aligned training program design",
-        "Job readiness and career pathway development",
-        "Employer partnership facilitation",
-        "Student placement and success tracking",
+        "Industry-Aligned Program Design",
+        "Career Pathway Development",
+        "Employer Partnership Facilitation",
+        "Student Success Tracking",
       ],
-      clients: "Tesla START Program, PG&E PowerPathway",
+      clients:
+        "Tesla START Program, PG&E PowerPathway, NextFlex Manufacturing Workforce Initiative",
       image: "/images/services/workforce_development.jpg",
     },
     {
@@ -79,14 +80,14 @@ export default function ServicesPage() {
       title: "Program Management",
       subtitle: "Strategic Oversight for Complex Initiatives",
       description:
-        "Expert management of large-scale higher education programs ensuring on-time delivery, budget adherence, and measurable outcomes for community colleges and state agencies.",
+        "Expert program management for complex, multi-year higher education services and workforce development initiatives. From grant-funded workforce programs to statewide educational initiatives, we manage all aspects of program execution including stakeholder coordination, budget oversight, compliance reporting, and performance measurement.",
       features: [
-        "Multi-year program strategic planning",
-        "Stakeholder coordination and communication",
-        "Budget management and resource allocation",
-        "Performance metrics and outcome reporting",
+        "Strategic Program Planning",
+        "Stakeholder Coordination",
+        "Budget & Resource Management",
+        "Performance Reporting",
       ],
-      clients: "PG&E PowerPathway (2018-2021)",
+      clients: "PG&E PowerPathway Program Management (2018-2021)",
       image: "/images/services/program_management.jpg",
     },
     {
@@ -94,14 +95,15 @@ export default function ServicesPage() {
       title: "Project Management",
       subtitle: "Delivering Results Through Expert Coordination",
       description:
-        "Professional project management for higher education and workforce training initiatives. We manage timelines, budgets, and relationships to ensure successful project completion.",
+        "Our project management services ensure successful execution of higher education services and workforce development projects from initiation through completion. We coordinate timelines, manage budgets, facilitate stakeholder communication, and deliver results for community colleges, government agencies, and industry partners.",
       features: [
-        "Project planning and timeline development",
-        "Resource coordination and team leadership",
-        "Risk management and mitigation",
-        "Quality assurance and deliverable tracking",
+        "Project Planning & Scheduling",
+        "Resource Coordination",
+        "Risk Management",
+        "Quality Assurance",
       ],
-      clients: "NextFlex, PureStorage",
+      clients:
+        "NextFlex Training Facility Setup, PureStorage Technical Program Launch",
       image: "/images/services/project_management.jpg",
     },
     {
@@ -109,14 +111,15 @@ export default function ServicesPage() {
       title: "Curriculum Development",
       subtitle: "Industry-Aligned Learning Solutions",
       description:
-        "Our curriculum designers create comprehensive training materials that meet both academic standards and real-world employer workforce needs. We bridge the gap between education and industry.",
+        "Our curriculum development services create comprehensive, industry-aligned training materials that meet academic standards while preparing students for real-world employment. We work with subject matter experts, industry partners, and educational institutions to bridge the gap between classroom theory and workplace practice.",
       features: [
-        "Custom curriculum design and development",
-        "Industry competency alignment",
-        "Learning outcome assessment tools",
-        "Instructor training and support materials",
+        "Custom Curriculum Design",
+        "Industry Competency Mapping",
+        "Learning Outcome Assessment",
+        "Instructor Support Materials",
       ],
-      clients: "Tesla, PG&E, NextFlex programs",
+      clients:
+        "Tesla Technician Training Curriculum, PG&E Utility Worker Programs, NextFlex Programs",
       image: "/images/services/curriculum_development.jpg",
     },
     {
@@ -124,14 +127,14 @@ export default function ServicesPage() {
       title: "Training Delivery",
       subtitle: "Engaging, Effective Instruction",
       description:
-        "Implementation and facilitation of workforce training programs that bridge classroom learning and real-world job requirements. Our trainers bring industry expertise and educational best practices.",
+        "We deliver engaging, effective workforce training that bridges classroom learning and workplace requirements. Our experienced instructors combine industry expertise with proven teaching methodologies to prepare students for immediate employment success.",
       features: [
-        "Expert instructor recruitment and training",
-        "Hands-on skills development",
-        "Hybrid and remote training delivery",
-        "Student engagement and retention strategies",
+        "Expert Instructor Recruitment",
+        "Hands-On Skills Training",
+        "Hybrid & Remote Delivery",
+        "Student Engagement & Retention",
       ],
-      clients: "Community colleges, corporate partners",
+      clients: "Community college workforce programs, corporate training partnerships",
       image: "/images/services/training_delivery.jpg",
     },
     {
@@ -139,14 +142,14 @@ export default function ServicesPage() {
       title: "Employer Engagement",
       subtitle: "Strategic Industry Partnerships",
       description:
-        "We facilitate meaningful relationships between education institutions and industry leaders, creating sustainable talent pipelines and workforce pathways that benefit both students and employers.",
+        "We build and maintain strategic partnerships between educational institutions and industry leaders, creating sustainable talent pipelines that benefit students, colleges, and employers. Our employer engagement services ensure workforce development programs remain relevant, responsive, and aligned with current labor market demands.",
       features: [
-        "Employer advisory board development",
+        "Employer advisory boards",
         "Internship and apprenticeship programs",
-        "Industry needs assessment",
-        "Job placement support and tracking",
+        "Industry Needs Assessment",
+        "Job Placement Support",
       ],
-      clients: "Tesla, PG&E, PureStorage, NextFlex",
+      clients: "Tesla START Employer Partnership, PG&E Utility Workforce Engagement, PureStorage Technology Alliance, NextFlex Programs",
       image: "/images/services/employer_engagement.jpg",
     },
   ];
@@ -161,9 +164,11 @@ export default function ServicesPage() {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>What We Do</h1>
           <p className={styles.heroDescription}>
-            Comprehensive higher education services delivering workforce
-            development, curriculum design, and project management solutions for
-            community colleges, state agencies, and federal clients nationwide.
+            Comprehensive higher education services and workforce development
+            solutions for community colleges, state agencies, and industry
+            partners. Our DVBE-certified team provides end-to-end support from
+            curriculum design to training delivery, ensuring measurable outcomes
+            for students, institutions, and employers.
           </p>
         </div>
       </section>
