@@ -60,7 +60,7 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
             <li className={styles.navItem}>
-              <Link href="/">About</Link>
+              <Link href="/#about">About</Link>
             </li>
             <li className={styles.navItem}>
               <Link href="/services">Services</Link>

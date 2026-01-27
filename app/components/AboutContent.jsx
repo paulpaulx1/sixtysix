@@ -31,6 +31,7 @@ const AboutContent = () => {
     <div className={styles.container}>
       <div
         ref={sectionRef}
+        id="about"
         className={`${styles.aboutContent} ${isVisible ? styles.visible : ""}`}
       >
         {/* Image */}
@@ -45,18 +46,17 @@ const AboutContent = () => {
           <div className={styles.contentBlock}>
             <p>
               66 Professional Services is a comprehensive higher education
-              services organization delivering workforce development, curriculum
-              design, and project management solutions for community colleges,
-              state agencies, and federal clients nationwide.
+              services and workforce development firm specializing in
+              industry-aligned training, curriculum design, and program
+              management for community colleges, state agencies, and federal
+              partners.
             </p>
 
             <p>
-              With a team of 10+ specialists and 8+ years of proven experience,
-              we've partnered with industry leaders including Tesla, PG&E,
-              PureStorage, and NextFlex to create innovative training programs
-              that bridge education and industry. Our DVBE certification and 8A
-              program pathway position us as a trusted partner for government
-              contracts and enterprise workforce initiatives.
+              As a DVBE-certified company with an 8(a) program pathway, we bring
+              deep expertise in public education systems together with
+              real-world industry insight to help institutions launch compliant,
+              scalable workforce programs.
             </p>
           </div>
         </div>

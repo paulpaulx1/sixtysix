@@ -23,8 +23,12 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 
+#about {
+  scroll-margin-top: 140px;
+}
 body {
   color: var(--foreground);
   background: var(--background);

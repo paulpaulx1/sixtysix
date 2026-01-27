@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 import styles from "./ServiceCardsSection.module.css";
 import ServiceCard from "./ServiceCard";
 
@@ -15,7 +15,7 @@ const ServiceCardsSection = () => {
           setHasAnimated(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -31,7 +31,7 @@ const ServiceCardsSection = () => {
       blueprint: "WFD_001",
       title: "Workforce Development",
       description:
-        "Comprehensive workforce training programs connecting education and industry. We design and implement job readiness initiatives that prepare students for careers with employers like Tesla, PG&E, and NextFlex.",
+        "We design and implement comprehensive workforce development programs that connect community college students to employers like Tesla, PG&E, and NextFlex, creating clear pathways from classroom to career with measurable employment outcomes.",
       linkUrl: "/services#workforce-development",
       linkText: "Learn More About Workforce Development",
     },
@@ -40,7 +40,7 @@ const ServiceCardsSection = () => {
       blueprint: "PGM_001",
       title: "Program Management",
       description:
-        "Strategic oversight and execution of large-scale higher education initiatives. Our team manages multi-year programs ensuring on-time delivery and measurable outcomes for community colleges and state agencies.",
+        "Our team creates industry-aligned curricula that meet academic standards while directly reflecting employer workforce needs. We develop complete course frameworks, instructional materials, assessments, and learning resources for technical and professional programs.",
       linkUrl: "/services#program-management",
       linkText: "Explore Program Management Services",
     },
@@ -49,7 +49,7 @@ const ServiceCardsSection = () => {
       blueprint: "PRJ_001",
       title: "Project Management",
       description:
-        "Expert project coordination for higher education and workforce training initiatives. We deliver results-driven solutions managing timelines, budgets, and stakeholder relationships across complex educational projects.",
+        "Our project managers coordinate workforce and education initiatives from planning through implementation—handling timelines, stakeholder communication, risk management, and deliverables to ensure successful program launches.",
       linkUrl: "/services#project-management",
       linkText: "View Project Management Expertise",
     },
@@ -65,31 +65,33 @@ const ServiceCardsSection = () => {
     {
       iconType: "toolbox",
       blueprint: "TRN_001",
-      title: "Training Delivery",
+      title: "Training Facilitation",
       description:
-        "Implementation and facilitation of workforce training programs. We deliver engaging, effective instruction that bridges the gap between classroom learning and real-world job requirements.",
+        "We deliver engaging, industry-relevant training that bridges classroom learning and workplace expectations, preparing students for immediate job placement and long-term career growth",
       linkUrl: "/services#training-delivery",
-      linkText: "Learn About Training Delivery",
+      linkText: "Learn About Training Facilitation",
     },
     {
       iconType: "wrench",
       blueprint: "EMP_001",
       title: "Employer Engagement",
       description:
-        "Strategic partnerships connecting education institutions with industry leaders. We facilitate employer relationships that create meaningful workforce pathways and sustainable talent pipelines.",
+        "We build strategic partnerships between educational institutions and employers, facilitating apprenticeships, internships, and hiring pipelines while ensuring programs stay aligned with evolving workforce demands.",
       linkUrl: "/services#employer-engagement",
       linkText: "Explore Employer Engagement",
     },
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className={styles.servicesSection} 
+      className={styles.servicesSection}
       data-element="services"
     >
       <div className={styles.container}>
-        <div className={`${styles.servicesHeader} ${hasAnimated ? styles.headerVisible : styles.headerHidden}`}>
+        <div
+          className={`${styles.servicesHeader} ${hasAnimated ? styles.headerVisible : styles.headerHidden}`}
+        >
           <h2 className={styles.servicesTitle}>Our Services</h2>
         </div>
 
