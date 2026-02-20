@@ -20,6 +20,10 @@
   font-size: 0.7rem;
   opacity: 0.4;
   color: #546e7a;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 /* Hover effects */
@@ -71,9 +75,10 @@
 }
 
 .cardLink {
-  margin-top: 1.5rem;
+  margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid #e0e0e0;
+
 }
 
 .readMoreLink {

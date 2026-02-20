@@ -1,13 +1,32 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Team | 66 Professional Services",
-  description:
-    "Meet our team of 10+ specialists delivering higher education services, workforce development, and curriculum design solutions nationwide.",
-};
-
 export default function TeamPage() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const team = [
     {
       name: "Dan Montoya",
@@ -85,11 +104,15 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section className={styles.teamSection}>
+      <section ref={sectionRef} className={styles.teamSection}>
         <div className={styles.container}>
           <div className={styles.teamGrid}>
             {team.map((member, index) => (
-              <div key={index} className={styles.teamCard}>
+              <div
+                key={index}
+                className={`${styles.teamCard} ${isVisible ? styles.visible : ""}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <div className={styles.imageWrapper}>
                   <Image
                     src={member.image}

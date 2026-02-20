@@ -89,11 +89,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
+  align-items: stretch;
 }
 
 /* Card Wrapper Animations */
 .cardWrapper {
   width: 100%;
+  display: flex;
 }
 
 .cardHidden {
