@@ -22,8 +22,8 @@ export const metadata = {
   metadataBase: new URL("https://66professionalservices.com"), // Update with actual domain
   title: {
     default:
-      "66 Professional Services | Higher Education Services & Workforce Development",
-    template: "%s | 66 Professional Services",
+      "66 Training Services | Higher Education Services & Workforce Development",
+    template: "%s | 66 Training Services",
   },
   description:
     "California's leading higher education services organization delivering comprehensive workforce development, curriculum design, and project management solutions for community colleges, state agencies, and federal clients nationwide.",

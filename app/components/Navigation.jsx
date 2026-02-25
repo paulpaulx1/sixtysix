@@ -50,7 +50,7 @@ export default function Navigation() {
             className={styles.logoImage}
             width={180}
             height={60}
-            src="/66_logo.png"
+            src="/66-training-logo.png"
             alt="66 Professional Services Logo"
           />
         </Link>

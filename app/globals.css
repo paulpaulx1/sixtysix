@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+
 /* Force light mode only - no dark mode */
 :root {
   color-scheme: light only;
@@ -29,6 +31,7 @@ body {
 #about {
   scroll-margin-top: 140px;
 }
+
 body {
   color: var(--foreground);
   background: var(--background);

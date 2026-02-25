@@ -1,6 +1,6 @@
 /* components/AboutImage.module.css */
 .imageContainer {
-    border: 3px solid var(--charcoal);
+    border: 2px solid var(--charcoal);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: none;

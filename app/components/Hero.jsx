@@ -10,7 +10,7 @@ export default function Hero() {
       <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
-            66 <span className={styles.heroAccent}>Professional</span> Services
+            66 <span className={styles.heroAccent}>Training</span> Services
           </h1>
           <p className={styles.heroSubtitle}>
             Higher Education Services • Workforce Development • Curriculum
