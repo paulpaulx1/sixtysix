@@ -1,28 +1,21 @@
-/* ServiceCardsSection.module.css - Blueprint Theme */
+/* ServiceCardsSection.module.css */
 
 .servicesSection {
-  background: var(--blueprint-blue);
-  color: var(--warm-white);
-  padding: 4rem 2rem;
+  background: #2b2b2b;
+  color: whitesmoke;
+  padding: 5rem 2rem;
   position: relative;
   overflow: hidden;
 }
 
-/* Blueprint grid background */
+/* Dot grid — matches WhoWeServe dark section */
 .servicesSection::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
 }
 
 .container {
@@ -32,10 +25,10 @@
   z-index: 2;
 }
 
-/* Header Animations */
+/* Header */
 .servicesHeader {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .headerHidden {
@@ -62,37 +55,38 @@
 }
 
 .servicesTitle {
-  font-family: var(--font-space), monospace;
+  font-family: 'Syne', sans-serif;
   font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--warm-white);
-  margin-bottom: 2rem;
+  font-weight: 700;
+  color: whitesmoke;
+  margin-bottom: 0;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 0.05em;
   position: relative;
+  display: inline-block;
 }
 
+/* Orange bar above title */
 .servicesTitle::before {
   content: '';
   position: absolute;
-  top: -25px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--primary-yellow);
+  width: 36px;
+  height: 3px;
+  background: #ff6b35;
   border-radius: 2px;
 }
 
 /* Grid */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
   align-items: stretch;
 }
 
-/* Card Wrapper Animations */
 .cardWrapper {
   width: 100%;
   display: flex;
@@ -104,9 +98,7 @@
 }
 
 .cardVisible {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 0.7s ease forwards;
 }
 
 @keyframes fadeInUp {
@@ -121,18 +113,7 @@
   }
 }
 
-/* Responsive design */
-@media (max-width: 1024px) {
-  .servicesTitle {
-    font-size: 2.2rem;
-  }
-
-  .servicesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .servicesSection {
     padding: 4rem 1rem;
@@ -144,34 +125,16 @@
 
   .servicesGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .servicesHeader {
-    margin-bottom: 2.5rem;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .servicesSection {
-    padding: 3rem 1rem;
-  }
-
   .servicesTitle {
     font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-
-  .servicesTitle::before {
-    width: 60px;
-  }
-
-  .servicesHeader {
-    margin-bottom: 2rem;
   }
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
 
   .headerHidden,
@@ -182,4 +145,18 @@
     transform: none;
     animation: none;
   }
+}
+
+.servicesEyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff6b35;
+  margin-bottom: 10px;
+}
+
+/* Remove the ::before bar from servicesTitle */
+.servicesTitle::before {
+  display: none;
 }

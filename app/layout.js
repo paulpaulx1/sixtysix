@@ -3,6 +3,13 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import { DM_Sans } from 'next/font/google'
+
+const dmSans = DM_Sans({ 
+  subsets: ['latin'], 
+  weight: ['400', '500', '600'],
+  variable: '--font-dm-sans'
+})
 
 const inter = Inter({
   subsets: ["latin"],

@@ -12,8 +12,9 @@ export default async function Home() {
       <main className={styles.main} role="main">
         <Hero />
         <AboutContent />
-        <WhoWeServe />
+
         <ServiceCardsSection />
+        <WhoWeServe />
       </main>
     </>
   );

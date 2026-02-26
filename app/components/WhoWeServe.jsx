@@ -91,6 +91,8 @@ export default function WhoWeServe() {
 
   return (
     <>
+      {/* ── WHY 66TRAINING ────────────────────────────────────────────────── */}
+
       {/* ── WHO WE SERVE ──────────────────────────────────────────────────── */}
       <section
         ref={serveRef}
@@ -145,9 +147,12 @@ export default function WhoWeServe() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
 
-      {/* ── WHY 66TRAINING ────────────────────────────────────────────────── */}
-      <section
+/*
+<section
         ref={whyRef}
         id="why-66training"
         className={`${styles.whySection} ${whyVisible ? styles.whyVisible : ""}`}
@@ -180,7 +185,7 @@ export default function WhoWeServe() {
             })}
           </div>
 
-          {/* Award badge row */}
+
           <div className={styles.badgeRow}>
             <div className={styles.awardBadge}>
               <Award size={16} strokeWidth={2} />
@@ -200,6 +205,5 @@ export default function WhoWeServe() {
           </div>
         </div>
       </section>
-    </>
-  );
-}
+
+      */

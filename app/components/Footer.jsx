@@ -26,9 +26,7 @@ const Footer = () => {
             </p>
             <div className={styles.certifications}>
               <span>DVBE Certified</span>
-              <span>•</span>
-              <span>8A Program Pathway</span>
-            </div>
+             </div>
           </div>
 
           {/* Services */}

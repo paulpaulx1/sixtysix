@@ -2,11 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { MessageSquare, TrendingUp } from "lucide-react";
 import styles from "./AboutSection.module.css";
 import AboutImage from "./AboutImage";
-import { MessageSquare, TrendingUp } from "lucide-react";
 
-const AboutContent = () => {
+const stats = [
+  { value: "12", label: "Colleges Supported" },
+  { value: "8", label: "Regional Initiatives" },
+  { value: "DVBE", label: "Certified" },
+  { value: "8(a)", label: "Program Pathway" },
+];
+
+export default function AboutContent() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -16,72 +23,67 @@ const AboutContent = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <div
         ref={sectionRef}
         id="about"
-        className={`${styles.aboutContent} ${isVisible ? styles.visible : ""}`}
+        className={`${styles.grid} ${isVisible ? styles.visible : ""}`}
       >
-        {/* Image column */}
-        <div className={styles.imageSection}>
-          <AboutImage />
-          {/* <div className={styles.badges}>
-            <span className={styles.badge}>DVBE Certified</span>
-            <span className={styles.badge}>8(a) Pathway</span>
-          </div> */}
+        {/* ── Left column: image + stats ───────────────────────────── */}
+        <div className={styles.right}>
+          <div className={styles.photoWrap}>
+            <AboutImage />
+          </div>
+
+          
         </div>
 
-        {/* Text column */}
-        <div className={styles.content}>
+        {/* ── Right column: text + CTAs ────────────────────────────── */}
+        <div className={styles.left}>
+          <span className={styles.eyebrow}>Who We Are</span>
+
           <div className={styles.titleWrap}>
             <div className={styles.titleRule} />
-            <h2 className={styles.title}>About 66 Training Services</h2>
+            <h2 className={styles.title}>
+              About 66 <span className={styles.orange}>Training</span> Services
+            </h2>
           </div>
 
-          <div className={styles.contentBlock}>
-            <p>
-              66 Training Services is a comprehensive higher education services
-              and workforce development firm specializing in industry-aligned
-              training, curriculum design, and program management for community
-              colleges, state agencies, and federal partners.
-            </p>
-            <p>
-              As a DVBE-certified company with an 8(a) program pathway, we bring
-              deep expertise in public education systems together with
-              real-world industry insight to help institutions launch compliant,
-              scalable workforce programs.
-            </p>
-          </div>
-
-          {/* Drop this in place of the single learnMore Link */}
+          <p className={styles.body}>
+            66 Training partners with California community colleges, regional
+            consortia, and government workforce leaders to implement high-impact
+            training and education initiatives.
+          </p>
+          <p className={styles.body}>
+            We provide expert program and project management, employer
+            engagement leadership, and industry-aligned implementation that
+            moves workforce initiatives from funded proposals to operational
+            success.
+          </p>
 
           <div className={styles.ctaRow}>
-            <div className={styles.ctaRow}>
-              <Link href="/contact" className={styles.ctaPrimary}>
-                <MessageSquare size={20} strokeWidth={2} />
-                Talk to Us
-              </Link>
-              <Link href="/projects" className={styles.ctaSecondary}>
-                <TrendingUp size={20} strokeWidth={2} />
-                Our Impact
-              </Link>
-            </div>
+            <Link href="/contact" className={styles.ctaPrimary}>
+              <MessageSquare size={22} strokeWidth={2} />
+              Talk to Us
+            </Link>
+            <Link href="/work" className={styles.ctaSecondary}>
+              <TrendingUp size={22} strokeWidth={2} />
+              Our Impact
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* <div className={styles.sectionDivider}>
+      <div className={styles.divider}>
         <span className={styles.dividerDot} />
-      </div> */}
+      </div>
     </div>
   );
-};
-
-export default AboutContent;
+}

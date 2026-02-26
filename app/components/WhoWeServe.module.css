@@ -67,11 +67,12 @@
 
 .sectionTitleLight {
     color: whitesmoke;
+    letter-spacing: .04rem;
 }
 
 /* ── WHO WE SERVE ─────────────────────────────────────────────────────────── */
 .serveSection {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: white;
 }
 

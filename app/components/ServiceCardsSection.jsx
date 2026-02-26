@@ -25,6 +25,7 @@ const ServiceCardsSection = () => {
     return () => observer.disconnect();
   }, [hasAnimated]);
 
+  /* ── Previous 6-service array ────────────────────────────────────────────
   const services = [
     {
       iconType: "house",
@@ -81,6 +82,108 @@ const ServiceCardsSection = () => {
       linkText: "Explore Employer Engagement",
     },
   ];
+  ──────────────────────────────────────────────────────────────────────── */
+
+  const services = [
+    {
+      iconType: "house",
+      blueprint: "WFD_001",
+      title: "Strong Workforce & CAI Initiative Support",
+      description:
+        "Full lifecycle implementation support — moving initiatives from proposal to operational success.",
+      bullets: [
+        "Program concept development",
+        "Industry validation",
+        "Employer advisory board formation",
+        "Curriculum alignment",
+        "Apprenticeship design and documentation",
+        "Reporting and compliance oversight",
+        "Cross-college coordination",
+      ],
+      linkUrl: "/services#workforce",
+      linkText: "Learn More",
+    },
+    {
+      iconType: "buildings",
+      blueprint: "PGM_001",
+      title: "Regional & Statewide Project Management",
+      description:
+        "Complex initiatives coordinated across multiple colleges and stakeholders — deliverables met, funding requirements satisfied.",
+      bullets: [
+        "Multi-partner governance facilitation",
+        "Budget and milestone tracking",
+        "Performance reporting",
+        "Risk mitigation",
+        "Stakeholder communication",
+      ],
+      linkUrl: "/services#project-management",
+      linkText: "Learn More",
+    },
+    {
+      iconType: "toolbox",
+      blueprint: "EMP_001",
+      title: "Employer Engagement & Industry Alignment",
+      description:
+        "A bridge between institutional priorities and employer expectations.",
+      bullets: [
+        "Targeted outreach",
+        "Advisory board facilitation",
+        "Curriculum alignment to workforce needs",
+        "Apprenticeship pathway design",
+        "Talent pipeline development",
+      ],
+      linkUrl: "/services#employer-engagement",
+      linkText: "Learn More",
+    },
+    {
+      iconType: "ruler",
+      blueprint: "CUR_001",
+      title: "Curriculum Development",
+      description:
+        "Industry-aligned curriculum that meets academic standards and reflects real workforce needs.",
+      bullets: [
+        "Course framework and instructional design",
+        "Technical and professional program development",
+        "Competency mapping to employer skill requirements",
+        "Assessment and learning resource creation",
+        "Articulation and transfer pathway alignment",
+      ],
+      linkUrl: "/services#curriculum-development",
+      linkText: "Learn More",
+    },
+    {
+      iconType: "hammer",
+      blueprint: "TRN_001",
+      title: "Training Facilitation",
+      description:
+        "Engaging, industry-relevant training that bridges classroom learning and workplace expectations.",
+      bullets: [
+        "Contextualized instruction for technical programs",
+        "Workforce readiness and professional skills",
+        "Coordination with employer partners",
+        "Immediate job placement preparation",
+        "Long-term career pathway development",
+      ],
+      linkUrl: "/services#training-facilitation",
+      linkText: "Learn More",
+    },
+    {
+      iconType: "wrench",
+      blueprint: "CPL_001",
+      title: "Compliance & Reporting",
+      description:
+        "Rigorous oversight that keeps funded programs on track and audit-ready.",
+      bullets: [
+        "Strong Workforce and CAI reporting requirements",
+        "Launchboard and outcomes data management",
+        "Fiscal accountability and budget documentation",
+        "Registered apprenticeship compliance",
+        "Program review and continuous improvement",
+      ],
+      linkUrl: "/services#compliance",
+      linkText: "Learn More",
+    },
+  ];
 
   return (
     <section
@@ -92,6 +195,7 @@ const ServiceCardsSection = () => {
         <div
           className={`${styles.servicesHeader} ${hasAnimated ? styles.headerVisible : styles.headerHidden}`}
         >
+          <p className={styles.servicesEyebrow}>What We Do</p>
           <h2 className={styles.servicesTitle}>Our Services</h2>
         </div>
 
@@ -107,6 +211,7 @@ const ServiceCardsSection = () => {
                 blueprint={service.blueprint}
                 title={service.title}
                 description={service.description}
+                bullets={service.bullets}
                 linkUrl={service.linkUrl}
                 linkText={service.linkText}
               />
