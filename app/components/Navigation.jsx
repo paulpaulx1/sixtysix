@@ -10,6 +10,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const forceDark = ["/projects"].includes(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,9 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : ""}`}>
+    <nav
+      className={`${styles.nav} ${isScrolled || forceDark ? styles.navScrolled : ""}`}
+    >
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>

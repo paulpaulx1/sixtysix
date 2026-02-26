@@ -21,8 +21,8 @@
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(rgba(38, 50, 56, 0.92), rgba(38, 50, 56, 0.92)),
-              url('/images/projects-hero.jpg');
+  background: linear-gradient(rgba(53, 53, 53, 0.52), rgba(38, 50, 56, 0.92)),
+              url('/projects/field-projects.jpg');
   background-size: cover;
   background-position: center;
   background-color: #263238;
