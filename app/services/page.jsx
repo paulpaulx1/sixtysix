@@ -10,50 +10,35 @@ export default function ServicesPage() {
   const [heroVisible, setHeroVisible] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
   const cardRefs = useRef([]);
-  const heroRef = useRef(null);
   const ctaRef = useRef(null);
 
-  // Hero animation on mount
   useEffect(() => {
     setHeroVisible(true);
   }, []);
 
-  // Service cards observer
   useEffect(() => {
     const observers = cardRefs.current.map((ref, index) => {
       if (!ref) return null;
-
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setVisibleCards((prev) => new Set(prev).add(index));
           }
         },
-        { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+        { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
       );
-
       observer.observe(ref);
       return observer;
     });
-
-    return () => {
-      observers.forEach((observer) => observer?.disconnect());
-    };
+    return () => observers.forEach((o) => o?.disconnect());
   }, []);
 
-  // CTA observer
   useEffect(() => {
     if (!ctaRef.current) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setCtaVisible(true);
-        }
-      },
-      { threshold: 0.15 },
+      ([entry]) => { if (entry.isIntersecting) setCtaVisible(true); },
+      { threshold: 0.15 }
     );
-
     observer.observe(ctaRef.current);
     return () => observer.disconnect();
   }, []);
@@ -71,8 +56,7 @@ export default function ServicesPage() {
         "Employer Partnership Facilitation",
         "Student Success Tracking",
       ],
-      clients:
-        "Tesla START Program, PG&E PowerPathway, NextFlex Manufacturing Workforce Initiative",
+      clients: "Tesla START Program, PG&E PowerPathway, NextFlex Manufacturing Workforce Initiative",
       image: "/images/services/workforce_development.jpg",
     },
     {
@@ -102,8 +86,7 @@ export default function ServicesPage() {
         "Risk Management",
         "Quality Assurance",
       ],
-      clients:
-        "NextFlex Training Facility Setup, PureStorage Technical Program Launch",
+      clients: "NextFlex Training Facility Setup, PureStorage Technical Program Launch",
       image: "/images/services/project_management.jpg",
     },
     {
@@ -118,8 +101,7 @@ export default function ServicesPage() {
         "Learning Outcome Assessment",
         "Instructor Support Materials",
       ],
-      clients:
-        "Tesla Technician Training Curriculum, PG&E Utility Worker Programs, NextFlex Programs",
+      clients: "Tesla Technician Training Curriculum, PG&E Utility Worker Programs, NextFlex Programs",
       image: "/images/services/curriculum_development.jpg",
     },
     {
@@ -144,8 +126,8 @@ export default function ServicesPage() {
       description:
         "We build and maintain strategic partnerships between educational institutions and industry leaders, creating sustainable talent pipelines that benefit students, colleges, and employers. Our employer engagement services ensure workforce development programs remain relevant, responsive, and aligned with current labor market demands.",
       features: [
-        "Employer advisory boards",
-        "Internship and apprenticeship programs",
+        "Employer Advisory Boards",
+        "Internship & Apprenticeship Programs",
         "Industry Needs Assessment",
         "Job Placement Support",
       ],
@@ -156,13 +138,12 @@ export default function ServicesPage() {
 
   return (
     <main className={styles.servicesPage}>
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}
-      >
+
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>What We Do</h1>
+          <span className={styles.heroEyebrow}>What We Do</span>
+          <h1 className={styles.heroTitle}>Our Services</h1>
           <p className={styles.heroDescription}>
             Comprehensive higher education services and workforce development
             solutions for community colleges, state agencies, and industry
@@ -173,7 +154,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* ── Services ─────────────────────────────────────────────────────── */}
       <section className={styles.servicesSection}>
         <div className={styles.container}>
           {services.map((service, index) => (
@@ -197,11 +178,9 @@ export default function ServicesPage() {
               </div>
 
               <div className={styles.serviceContent}>
-                <h2 className={styles.serviceTitle}>{service.title}</h2>
                 <p className={styles.serviceSubtitle}>{service.subtitle}</p>
-                <p className={styles.serviceDescription}>
-                  {service.description}
-                </p>
+                <h2 className={styles.serviceTitle}>{service.title}</h2>
+                <p className={styles.serviceDescription}>{service.description}</p>
 
                 <div className={styles.serviceFeatures}>
                   <h3>Key Capabilities</h3>
@@ -221,22 +200,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section
         ref={ctaRef}
         className={`${styles.ctaSection} ${ctaVisible ? styles.ctaVisible : ""}`}
       >
         <div className={styles.ctaContent}>
+          <span className={styles.ctaEyebrow}>Let's Work Together</span>
           <h2>Ready to Partner With Us?</h2>
           <p>
             Let's discuss how our team of 10+ specialists can support your
             higher education and workforce development initiatives.
           </p>
           <Link href="/contact" className={styles.ctaButton}>
-            Get in Touch
+            Get in Touch →
           </Link>
         </div>
       </section>
+
     </main>
   );
 }
