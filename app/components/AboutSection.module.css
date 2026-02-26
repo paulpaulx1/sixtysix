@@ -96,6 +96,7 @@
   align-items: stretch;
   gap: 14px;
   margin-bottom: 2rem;
+  
 }
 
 .titleRule {
@@ -114,6 +115,8 @@
   line-height: 1.15;
 
   margin: 10px 0;
+  padding-bottom: 14px;
+  border-bottom: 2px solid gray;
 }
 
 .orange {
@@ -121,7 +124,7 @@
 }
 
 .body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1.15rem;
   color: var(--charcoal-mid);
   line-height: 1.8;
@@ -259,7 +262,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--charcoal-light);
+  background: #666666;
 }
 
 .dividerDot {
@@ -313,3 +316,4 @@
     transform: none !important;
   }
 }
+

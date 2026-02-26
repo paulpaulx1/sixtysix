@@ -11,6 +11,14 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans'
 })
 
+import { Nunito_Sans } from 'next/font/google'
+
+const nunitoSans = Nunito_Sans({ 
+  subsets: ['latin'], 
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-nunito-sans'
+})
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],

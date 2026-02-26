@@ -5,69 +5,59 @@ import {
   GraduationCap,
   Building2,
   Briefcase,
-  CheckCircle2,
-  MapPin,
   Zap,
+  MapPin,
   Users,
   Award,
 } from "lucide-react";
 import styles from "./WhoWeServe.module.css";
 
-/* ── Data ─────────────────────────────────────────────────────────────────── */
-
 const audiences = [
   {
     icon: GraduationCap,
     title: "Community College Workforce Leaders",
-    body: "We work with deans, directors, and workforce development teams to launch and sustain new programs, coordinate regional initiatives, navigate curriculum approval and registered apprenticeship processes, and manage Strong Workforce and CAI-funded projects.",
-    note: "When internal bandwidth is limited and execution matters most, 66Training brings disciplined leadership and aligned delivery.",
-    bullets: [
-      "Launch and sustain new programs",
-      "Coordinate regional and cross-college initiatives",
-      "Navigate curriculum approval and registered apprenticeship processes",
-      "Manage Strong Workforce and CAI-funded projects",
-    ],
+    body: "We work with deans, directors, and workforce development teams to launch programs, coordinate regional initiatives, and manage Strong Workforce and CAI-funded projects.",
   },
   {
     icon: Building2,
     title: "Government Workforce & L&D Teams",
-    body: "As a certified Disabled Veteran Business Enterprise, we support state agencies and public workforce entities in advancing training initiatives that align with regional economic priorities and funding requirements.",
-    bullets: null,
-    note: null,
+    body: "As a DVBE-certified firm, we support state agencies and public workforce entities in advancing training initiatives aligned with regional economic priorities.",
   },
   {
     icon: Briefcase,
     title: "Industry & Corporate Partners",
-    body: "We help employers engage with colleges, align workforce skill needs to program design, and strengthen talent pipelines through meaningful collaboration — all within structured, college-led implementation frameworks.",
-    bullets: null,
-    note: null,
+    body: "We help employers engage with colleges, align skill needs to program design, and strengthen talent pipelines within structured, college-led implementation frameworks.",
   },
 ];
 
 const reasons = [
   {
     icon: Zap,
-    title: "Implementation Expertise Within Education Systems",
-    body: "Few firms understand California's community college system like we do — from Strong Workforce funding and CAI requirements to curriculum pathways and apprenticeship registration. We accelerate progress while minimizing delays and compliance risks.",
+    title: "Implementation Expertise",
+    body: "From Strong Workforce funding to apprenticeship registration — we know the California CCC system and accelerate progress while minimizing compliance risks.",
   },
   {
     icon: MapPin,
-    title: "Proven Track Record in Regional Collaboration",
-    body: "Our team has supported 12 California community colleges, led 8 regional initiatives through the Bay Area Community College Consortium, managed statewide pilot projects, and engaged hundreds of employers statewide in workforce alignment efforts.",
+    title: "Regional Track Record",
+    body: "12 California community colleges supported. 8 regional initiatives led through the Bay Area Community College Consortium. Hundreds of employers engaged statewide.",
   },
   {
     icon: Users,
-    title: "Industry-Aligned Execution Support",
-    body: "Through college partnerships, we have supported workforce programs that align with hiring demand from major employers, including collaborations involving Tesla, PG&E, AWS, Google, and Applied Materials — ensuring programs reflect real workforce needs.",
+    title: "Industry-Aligned Execution",
+    body: "We've supported programs aligned with hiring demand from Tesla, PG&E, AWS, Google, and Applied Materials — ensuring curricula reflect real workforce needs.",
   },
 ];
 
-/* ── Hook ─────────────────────────────────────────────────────────────────── */
+const badges = [
+  { icon: Award, label: "DVBE Certified" },
+  { icon: Award, label: "8(a) Program Pathway" },
+  { icon: MapPin, label: "12 Colleges Supported" },
+  { icon: Users, label: "8 Regional Initiatives" },
+];
 
 function useVisible(threshold = 0.12) {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
-
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(
@@ -79,11 +69,8 @@ function useVisible(threshold = 0.12) {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, [threshold]);
-
   return [ref, visible];
 }
-
-/* ── Component ────────────────────────────────────────────────────────────── */
 
 export default function WhoWeServe() {
   const [serveRef, serveVisible] = useVisible();
@@ -91,9 +78,7 @@ export default function WhoWeServe() {
 
   return (
     <>
-      {/* ── WHY 66TRAINING ────────────────────────────────────────────────── */}
-
-      {/* ── WHO WE SERVE ──────────────────────────────────────────────────── */}
+      {/* ── WHO WE SERVE ─────────────────────────────────────────────────── */}
       <section
         ref={serveRef}
         id="who-we-serve"
@@ -101,7 +86,7 @@ export default function WhoWeServe() {
       >
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Who We Serve</h2>
+            <span className={styles.eyebrow}>Who We Serve</span>
           </div>
 
           <div className={styles.audienceGrid}>
@@ -115,55 +100,29 @@ export default function WhoWeServe() {
                 >
                   <div className={styles.cardIconWrap}>
                     <Icon
-                      size={22}
+                      size={20}
                       strokeWidth={1.8}
                       className={styles.cardIcon}
                     />
                   </div>
-                  <div className={styles.cardText}>
-                    <h3 className={styles.cardTitle}>{a.title}</h3>
-                    <p className={styles.cardBody}>{a.body}</p>
-
-                    {a.bullets && (
-                      <ul className={styles.bullets}>
-                        {a.bullets.map((b) => (
-                          <li key={b}>
-                            <CheckCircle2
-                              size={13}
-                              strokeWidth={2.2}
-                              className={styles.bulletIcon}
-                            />
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {a.note && <p className={styles.cardNote}>{a.note}</p>}
-                  </div>
+                  <h3 className={styles.cardTitle}>{a.title}</h3>
+                  <p className={styles.cardBody}>{a.body}</p>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
-    </>
-  );
-}
 
-/*
-<section
+      {/* ── WHY 66TRAINING — compressed dark strip ───────────────────────── */}
+      <section
         ref={whyRef}
         id="why-66training"
         className={`${styles.whySection} ${whyVisible ? styles.whyVisible : ""}`}
       >
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2
-              className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}
-            >
-              Why 66Training
-            </h2>
+          <div className={styles.whyHeader}>
+            <span className={styles.eyebrowLight}>Why 66Training</span>
           </div>
 
           <div className={styles.reasonsGrid}>
@@ -173,37 +132,33 @@ export default function WhoWeServe() {
                 <div
                   key={r.title}
                   className={styles.reasonCard}
-                  style={{ animationDelay: `${i * 0.14}s` }}
+                  style={{ animationDelay: `${i * 0.12}s` }}
                 >
                   <div className={styles.reasonIconWrap}>
-                    <Icon size={20} strokeWidth={1.8} />
+                    <Icon size={18} strokeWidth={1.8} />
                   </div>
-                  <h3 className={styles.reasonTitle}>{r.title}</h3>
-                  <p className={styles.reasonBody}>{r.body}</p>
+                  <div className={styles.reasonText}>
+                    <h3 className={styles.reasonTitle}>{r.title}</h3>
+                    <p className={styles.reasonBody}>{r.body}</p>
+                  </div>
                 </div>
               );
             })}
           </div>
 
-
           <div className={styles.badgeRow}>
-            <div className={styles.awardBadge}>
-              <Award size={16} strokeWidth={2} />
-              DVBE Certified
-            </div>
-            <div className={styles.awardBadge}>
-              <Award size={16} strokeWidth={2} />
-              8(a) Program Pathway
-            </div>
-            <div className={styles.awardBadge}>
-              <MapPin size={16} strokeWidth={2} />
-              12 California Colleges Supported
-            </div>
-            <div className={styles.awardBadge}>
-              <Users size={16} strokeWidth={2} />8 Regional Initiatives Led
-            </div>
+            {badges.map((b) => {
+              const Icon = b.icon;
+              return (
+                <div key={b.label} className={styles.awardBadge}>
+                  <Icon size={13} strokeWidth={2} />
+                  {b.label}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
-
-      */
+    </>
+  );
+}

@@ -14,6 +14,7 @@
   --font-space: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-dm-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-roboto: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-nunito: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Force light mode on all elements */
@@ -39,7 +40,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-roboto);
+  font-family: var(--font-nunito);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
