@@ -317,3 +317,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    order: 1; /* image goes below */
+  }
+
+  .right {
+    order: 2; /* text goes above */
+  }
+}
