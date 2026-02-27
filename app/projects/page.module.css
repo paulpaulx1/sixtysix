@@ -12,6 +12,52 @@
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* ── Entry animations ────────────────────────────────────────────────────── */
+
+.heroEyebrow, .heroTitle, .heroDescription { opacity: 0; }
+.heroVisible .heroEyebrow     { animation: fadeInUp 0.6s ease-out 0.1s forwards; }
+.heroVisible .heroTitle       { animation: fadeInUp 0.7s ease-out 0.25s forwards; }
+.heroVisible .heroDescription { animation: fadeInUp 0.7s ease-out 0.4s forwards; }
+
+.statBox { opacity: 0; transform: translateY(16px); }
+.statsVisible .statBox { animation: fadeInUp 0.5s ease-out forwards; }
+
+.projectCard { opacity: 0; transform: translateY(20px); }
+.cardVisible  { animation: fadeInUp 0.55s ease-out forwards; }
+
+.contractCard { opacity: 0; transform: translateY(16px); }
+.contractsVisible .contractCard { animation: fadeInUp 0.5s ease-out forwards; }
+
+.ctaSection { opacity: 0; transform: translateY(20px); }
+.ctaVisible { animation: fadeInUp 0.6s ease-out forwards; }
+
+
+/* Hero entry */
+.heroEyebrow, .heroTitle, .heroDescription { opacity: 0; }
+.heroVisible .heroEyebrow { animation: fadeInUp 0.6s ease-out 0.1s forwards; }
+.heroVisible .heroTitle { animation: fadeInUp 0.7s ease-out 0.25s forwards; }
+.heroVisible .heroDescription { animation: fadeInUp 0.7s ease-out 0.4s forwards; }
+
+/* Stats */
+.statBox { opacity: 0; transform: translateY(16px); }
+.statsVisible .statBox { animation: fadeInUp 0.5s ease-out forwards; }
+
+/* Cards */
+.projectCard { opacity: 0; transform: translateY(20px); }
+.cardVisible { animation: fadeInUp 0.55s ease-out forwards; }
+
+/* Contracts */
+.contractCard { opacity: 0; transform: translateY(16px); }
+.contractsVisible .contractCard { animation: fadeInUp 0.5s ease-out forwards; }
+
+/* CTA */
+.ctaSection { opacity: 0; transform: translateY(20px); }
+.ctaVisible { animation: fadeInUp 0.6s ease-out forwards; }
+
+/* DUPLICATE_MARKER
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+} */
 
 /* ── Page ────────────────────────────────────────────────────────────────── */
 .projectsPage {
@@ -21,7 +67,7 @@
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(rgba(53, 53, 53, 0.52), rgba(38, 50, 56, 0.92)),
+  background: linear-gradient(rgba(38, 50, 56, 0.72), rgba(38, 50, 56, 0.92)),
               url('/projects/field-projects.jpg');
   background-size: cover;
   background-position: center;
@@ -60,7 +106,7 @@
 
 .heroEyebrow {
   display: block;
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -482,5 +528,11 @@
 
 /* ── Reduced motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .projectCard { transition: none; }
+  .heroEyebrow, .heroTitle, .heroDescription,
+  .statBox, .projectCard, .contractCard, .ctaSection {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

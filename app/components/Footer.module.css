@@ -35,7 +35,6 @@
 .logoImage {
   width: 100%;
   height: auto;
-  filter: brightness(0) invert(1);
 }
 
 .companyName {
@@ -75,11 +74,12 @@
 }
 
 .columnTitle {
+  font-family: 'Syne', sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #ff6b35;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin: 0 0 1.5rem 0;
 }
 

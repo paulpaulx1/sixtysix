@@ -10,7 +10,6 @@ const stats = [
   { value: "12", label: "Colleges Supported" },
   { value: "8", label: "Regional Initiatives" },
   { value: "DVBE", label: "Certified" },
-  { value: "8(a)", label: "Program Pathway" },
 ];
 
 export default function AboutContent() {
@@ -41,8 +40,6 @@ export default function AboutContent() {
           <div className={styles.photoWrap}>
             <AboutImage />
           </div>
-
-          
         </div>
 
         {/* ── Right column: text + CTAs ────────────────────────────── */}

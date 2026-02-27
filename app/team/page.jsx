@@ -23,68 +23,88 @@ const team = [
   {
     name: "Renee Albrecht",
     role: "Senior Consultant",
-    image: "/images/team/Renee Albrecht.avif",
+    image: "/images/team/Renee%20Albrecht.avif",
     bio: "Renee Albrecht is a specialist in instructional design, curriculum development, and digital learning strategies. She supports 66Training's work by enhancing curriculum alignment, optimizing learning environments, and integrating effective learning technologies. Renee's expertise includes accessibility design, AI tools for education, and project coordination. With a master's in education, dual bachelor's degrees in finance and management, and a graduate certificate in the neuroscience of teaching and learning, she brings both pedagogical insight and practical design expertise to workforce programs.",
   },
   {
     name: "Dann Bergman",
     role: "Senior Consultant",
-    image: "/images/team/Dann Bergman.avif",
+    image: "/images/team/Dann%20Bergman.avif",
     bio: "With more than fifty years of training and instructional development experience, Dann Bergman brings deep institutional knowledge to 66Training's projects. His career includes developing training for IBM's PC launch, F-16 pilot training, healthcare education programs, and corporate sales training. He has also served as a project director on large educational programs and as acting Dean at San Jose Evergreen Community College.",
   },
   {
     name: "Carl Cimino",
     role: "Senior Consultant",
-    image: "/images/team/Carl Cimino.avif",
+    image: "/images/team/Carl%20Cimino.avif",
     bio: "Carl Cimino brings over two decades of apprenticeship and workforce training leadership to 66Training. He began his career in the building trades and transitioned to education administration, managing training operations within a major Joint Apprenticeship Training Center. His primary focus is building strong relationships among colleges, apprenticeship programs, and employer partners.",
   },
   {
     name: "Donna Gilmour",
     role: "Senior Consultant",
-    image: "/images/team/Donna Gilmour.avif",
+    image: "/images/team/Donna%20Gilmour.avif",
     bio: "Donna Gilmour is an HR and workforce development professional who specializes in creating talent pipelines and building work-based learning partnerships. She has managed internship programs that connect students with meaningful career opportunities and has led initiatives to develop paid internships and apprenticeships, including partnerships at Evergreen Valley College and with the San Jose Chamber of Commerce.",
   },
   {
     name: "Olivia Herriford, Ph.D.",
     role: "Senior Consultant",
-    image: "/images/team/Olivia Herriford.avif",
+    image: "/images/team/Olivia%20Herriford.avif",
     bio: "Olivia Herriford is a visionary leader with extensive experience in technology, diversity, and strategic engagement. A trailblazer in the tech industry, she has held leadership roles in both corporate and nonprofit sectors, contributing to major organizational growth and inclusive innovation. Olivia supports 66Training's efforts to embed equity, inclusion, and strategic tech insight into workforce initiatives.",
   },
   {
     name: "Sam Hopstone",
     role: "Project Management Consultant",
-    image: "/images/team/Samuel Hopstone.avif",
+    image: "/images/team/Samuel%20Hopstone.avif",
     bio: "Founder of Elderflower, Samuel simplifies environmental permitting with technical support, field oversight, and project management services. His passion for environmental stewardship is backed by a background in civil engineering, environmental consulting, and project management.",
   },
   {
     name: "Iyuanna Pease",
     role: "SEL & DEI Specialist",
-    image: "/images/team/Iyuanna Pease.avif",
+    image: "/images/team/Iyuanna%20Pease.avif",
     bio: "Dr. Iyuanna Pease specializes in SEL, DEI, and trauma-informed practices, empowering professionals for holistic well-being. With a rich background in counseling and academia, she offers tailored support, fostering resilience and emotional intelligence.",
   },
   {
     name: "Janhavi Pendse",
     role: "Workforce Development Consultant",
-    image: "/images/team/Janhavi Pendse.avif",
+    image: "/images/team/Janhavi%20Pendse.avif",
     bio: "Janhavi Pendse is an experienced consultant specializing in workforce development across higher education, private, and non-profit sectors. With extensive expertise in operations, program management, organizational development, and program evaluation, Janhavi has a proven track record of driving organizational success.",
   },
   {
     name: "Lauren Tabata",
     role: "Associate Consultant",
-    image: "/images/team/Lauren Tabata.avif",
+    image: "/images/team/Lauren%20Tabata.avif",
     bio: "Lauren Tabata brings creative and strategic design leadership to 66Training, supporting web design, visual branding, marketing strategy, and communications. With a background in graphic design, marketing, WordPress development, and digital engagement, she ensures the firm's visual identity and messaging resonate clearly with clients and partners.",
   },
 ];
 
+function useVisible(threshold = 0.12) {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold, rootMargin: "0px 0px -40px 0px" }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return [ref, visible];
+}
+
 export default function TeamPage() {
+  const [heroVisible, setHeroVisible] = useState(false);
+  const [introRef, introVisible] = useVisible(0.1);
+  const [spotlightRef, spotlightVisible] = useVisible(0.1);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
+  useEffect(() => { setHeroVisible(true); }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
     );
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -94,7 +114,7 @@ export default function TeamPage() {
     <main className={styles.teamPage}>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}>
         <div className={styles.heroContent}>
           <span className={styles.heroEyebrow}>Our Team</span>
           <h1 className={styles.heroTitle}>Meet the 66Training Team</h1>
@@ -108,7 +128,7 @@ export default function TeamPage() {
       </section>
 
       {/* ── Intro ────────────────────────────────────────────────────────── */}
-      <section className={styles.introSection}>
+      <section ref={introRef} className={`${styles.introSection} ${introVisible ? styles.introVisible : ""}`}>
         <div className={styles.container}>
           <div className={styles.introGrid}>
             <div className={styles.introLeft}>
@@ -143,7 +163,7 @@ export default function TeamPage() {
       </section>
 
       {/* ── Leadership Spotlight ─────────────────────────────────────────── */}
-      <section className={styles.spotlightSection}>
+      <section ref={spotlightRef} className={`${styles.spotlightSection} ${spotlightVisible ? styles.spotlightVisible : ""}`}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>Leadership Spotlight</span>

@@ -50,7 +50,6 @@ const reasons = [
 
 const badges = [
   { icon: Award, label: "DVBE Certified" },
-  { icon: Award, label: "8(a) Program Pathway" },
   { icon: MapPin, label: "12 Colleges Supported" },
   { icon: Users, label: "8 Regional Initiatives" },
 ];

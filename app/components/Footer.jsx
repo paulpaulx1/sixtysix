@@ -15,7 +15,7 @@ const Footer = () => {
                 className={styles.logoImage}
                 width={500}
                 height={200}
-                src="/66-training-logo.png"
+                src="/66-training-logo-orange.png"
                 alt="66 Professional Services Logo"
               />
             </div>
@@ -26,7 +26,7 @@ const Footer = () => {
             </p>
             <div className={styles.certifications}>
               <span>DVBE Certified</span>
-             </div>
+            </div>
           </div>
 
           {/* Services */}
@@ -35,17 +35,17 @@ const Footer = () => {
             <ul className={styles.linksList}>
               <li>
                 <Link href="/services#workforce-development">
-                  Workforce Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#program-management">
-                  Program Management
+                  Strong Workforce & CAI Support
                 </Link>
               </li>
               <li>
                 <Link href="/services#project-management">
-                  Project Management
+                  Regional Project Management
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#employer-engagement">
+                  Employer Engagement
                 </Link>
               </li>
               <li>
@@ -55,12 +55,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/services#training-delivery">
-                  Training Delivery
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#employer-engagement">
-                  Employer Engagement
+                  Training Facilitation
                 </Link>
               </li>
             </ul>
