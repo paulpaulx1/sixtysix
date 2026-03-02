@@ -45,7 +45,7 @@ export default function ServicesPage() {
 
   const services = [
     {
-      id: "workforce-development",
+      id: "workforce",
       title: "Workforce Development",
       subtitle: "Building Tomorrow's Workforce Today",
       description:

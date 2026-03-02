@@ -3,21 +3,21 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
-import { DM_Sans } from 'next/font/google'
+import { DM_Sans } from "next/font/google";
 
-const dmSans = DM_Sans({ 
-  subsets: ['latin'], 
-  weight: ['400', '500', '600'],
-  variable: '--font-dm-sans'
-})
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans",
+});
 
-import { Nunito_Sans } from 'next/font/google'
+import { Nunito_Sans } from "next/font/google";
 
-const nunitoSans = Nunito_Sans({ 
-  subsets: ['latin'], 
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-nunito-sans'
-})
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-nunito-sans",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -218,10 +218,7 @@ const localBusinessSchema = {
     "DVBE Services",
     "8A Certification",
   ],
-  awards: [
-    "DVBE Certified - Disabled Veteran Business Enterprise",
-    "8A Program Pathway Eligible",
-  ],
+  awards: ["DVBE Certified - Disabled Veteran Business Enterprise"],
   slogan: "California's Leading Higher Education Services Partner",
   foundingDate: "2016", // Adjust to actual founding year (mentioned 8+ years)
   aggregateRating: {
@@ -252,7 +249,7 @@ const organizationSchema = {
     height: 60,
   },
   description:
-    "Expert higher education services firm with 10+ specialists delivering workforce development, curriculum design, and project management solutions.",
+    "Expert higher education services firm delivering workforce development, curriculum design, and project management solutions.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+1-XXX-XXX-XXXX",

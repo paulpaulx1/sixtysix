@@ -42,7 +42,7 @@ const infoItems = [
   {
     icon: Award,
     label: "Certifications",
-    value: "DVBE Certified · 8(a) Program Pathway",
+    value: "DVBE Certified",
     href: null,
   },
 ];
