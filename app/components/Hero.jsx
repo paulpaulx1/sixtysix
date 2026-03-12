@@ -1,5 +1,6 @@
+import Link from "next/link";
+import { ArrowRight, Briefcase, Mail } from "lucide-react";
 import styles from "./Hero.module.css";
-import SocialIcons from "./SocialIcons";
 import VideoBackground from "./VideoBackground";
 import HeroCards from "./HeroCards";
 
@@ -14,6 +15,7 @@ export default function Hero() {
             <h1 className={styles.heroHeading}>
               66 <span className={styles.heroAccent}>Training</span> Services
             </h1>
+
             <p className={styles.heroSubtitle}>
               Higher Education Services • Workforce Development • Curriculum
               Design
@@ -21,16 +23,36 @@ export default function Hero() {
           </div>
 
           <div className={styles.heroActions}>
-            <div className={styles.socialSection}>
-              {/* <SocialIcons isHomepage={true} /> */}
+            <div className={styles.ctaSection}>
+              <Link href="/projects" className={styles.ctaButtonPrimary}>
+                <span className={styles.ctaIconWrap}>
+                  <Briefcase size={18} strokeWidth={2} className={styles.ctaIcon} />
+                </span>
+                <span className={styles.ctaText}>View Proof</span>
+                <ArrowRight
+                  size={16}
+                  strokeWidth={2.2}
+                  className={styles.ctaArrow}
+                />
+              </Link>
+
+              <Link href="/contact" className={styles.ctaButtonSecondary}>
+                <span className={styles.ctaIconWrap}>
+                  <Mail size={18} strokeWidth={2} className={styles.ctaIcon} />
+                </span>
+                <span className={styles.ctaText}>Get in Touch</span>
+                <ArrowRight
+                  size={16}
+                  strokeWidth={2.2}
+                  className={styles.ctaArrow}
+                />
+              </Link>
             </div>
           </div>
         </div>
-
-        {/* Swoop */}
       </section>
 
-      {/* Cards overlap the swoop */}
+      {/* <HeroCards /> */}
     </div>
   );
 }

@@ -31,33 +31,38 @@
   }
 }
 
-/* ── Wrap — needed so cards can overlap out of the section ─────────────────── */
+@keyframes iconSpinLift {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  100% {
+    transform: rotate(360deg) translateY(-1px);
+  }
+}
+
+/* ── Wrap ─────────────────────────────────────────────────────────────── */
 .heroWrap {
   position: relative;
 }
 
-/* Hero.module.css - Refined & Elegant */
+/* ── Hero ─────────────────────────────────────────────────────────────── */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: calc(8rem + 52px) 2rem 10rem;
-  /* extra bottom for swoop room */
   position: relative;
   background: var(--soft-cream);
   overflow: hidden;
   min-height: 85vh;
   text-align: center;
   clip-path: ellipse(141% 98% at 50% 0);
-
 }
 
 .heroVideoBackground {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
@@ -70,14 +75,10 @@
   animation: heroBackgroundZoom 1.5s ease-out;
 }
 
-/* Refined dark overlay with fade-in */
 .heroVideoBackground::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.35);
   z-index: 2;
   animation: heroOverlayFade 1s ease-out;
@@ -90,7 +91,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6rem;
+  gap: 3.4rem;
   position: relative;
   z-index: 3;
   width: 100%;
@@ -104,7 +105,6 @@
 .heroHeading {
   font-size: 52px;
   font-weight: 800;
-  font-style: normal;
   line-height: 1.2;
   margin: 0;
   color: whitesmoke;
@@ -138,7 +138,7 @@
 .heroActions {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -146,47 +146,117 @@
 }
 
 .ctaSection {
-  position: relative;
   display: flex;
-  gap: 1.5rem;
-}
-
-.socialSection {
-  display: flex;
+  gap: 1.3rem;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* ── Swoop ──────────────────────────────────────────────────────────────────
-   Sits at the bottom of the hero, same bg as the section below (white).
-   Adjust height to taste — taller = more dramatic curve.
-─────────────────────────────────────────────────────────────────────────── */
-.heroSwoop {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: white;
-
-  z-index: 4;
+/* ── CTA Buttons ──────────────────────────────────────────────────────── */
+.ctaButtonPrimary,
+.ctaButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+  padding: 0.95rem 1.2rem;
+  min-height: 58px;
+  border-radius: 999px;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
 }
 
-/* Video poster/placeholder */
+.ctaButtonPrimary {
+  background: #0000004d;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: white;
+}
+
+.ctaButtonSecondary {
+  background: #0000004d;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: white;
+}
+
+.ctaButtonPrimary:hover,
+.ctaButtonSecondary:hover {
+  transform: translateY(-2px);
+}
+
+.ctaButtonPrimary:hover {
+  background: rgba(255, 107, 53, 0.24);
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.ctaIconWrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ctaIcon {
+  color: currentColor;
+  transition: transform 0.4s ease;
+  transform-origin: center;
+}
+
+.ctaButtonPrimary:hover .ctaIcon,
+.ctaButtonSecondary:hover .ctaIcon {
+  animation: iconSpinLift 0.45s ease;
+}
+
+.ctaText {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ctaArrow {
+  opacity: 0.82;
+  transform: translateX(0);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ctaButtonPrimary:hover .ctaArrow,
+.ctaButtonSecondary:hover .ctaArrow {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* Video poster / placeholder */
 .videoPoster {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
   z-index: 1;
-  inset: 0;
-
   pointer-events: none;
 }
 
-/* Mobile Responsive */
+/* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .heroContainer {
     align-items: center;
@@ -199,24 +269,18 @@
 
   .heroActions {
     justify-content: center;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .socialSection {
-    margin-left: 0;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-
   .hero {
     padding: 0 2rem;
   }
 
   .heroContainer {
     min-height: 80vh;
-    gap: 4rem;
+    gap: 2.5rem;
   }
 
   .heroHeading {
@@ -229,12 +293,16 @@
     margin-top: 0.75rem;
   }
 
-  .heroActions {
-    gap: 2.5rem;
+  .ctaSection {
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
   }
 
-  .heroSwoop {
-    height: 60px;
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -249,11 +317,18 @@
   }
 
   .heroContainer {
-    gap: 3rem;
+    gap: 2.25rem;
   }
 
-  .heroActions {
-    gap: 2rem;
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    padding: 0.9rem 1rem;
+    min-height: 54px;
+  }
+
+  .ctaText {
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
   }
 }
 
@@ -268,14 +343,22 @@
   }
 }
 
-/* Reduce motion for accessibility */
+/* ── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-
   .heroVideoBackground video,
   .heroVideoBackground::after,
   .heroHeading,
   .heroSubtitle,
-  .heroActions {
-    animation: none;
+  .heroActions,
+  .ctaIcon {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ctaButtonPrimary:hover,
+  .ctaButtonSecondary:hover,
+  .ctaButtonPrimary:hover .ctaArrow,
+  .ctaButtonSecondary:hover .ctaArrow {
+    transform: none;
   }
 }
