@@ -11,8 +11,10 @@ function useVisible(threshold = 0.12) {
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold, rootMargin: "0px 0px -40px 0px" }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold, rootMargin: "0px 0px -40px 0px" },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -24,15 +26,15 @@ const infoItems = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@66proservices.com",
-    href: "mailto:info@66proservices.com",
+    value: "info@66training.com",
+    href: "mailto:info@66training.com",
   },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "(555) 555-5555",
-    href: "tel:+15555555555",
-  },
+  // {
+  //   icon: Phone,
+  //   label: "Phone",
+  //   value: "(555) 555-5555",
+  //   href: "tel:+15555555555",
+  // },
   {
     icon: MapPin,
     label: "Service Area",
@@ -54,7 +56,9 @@ export default function ContactPage() {
   const [infoRef, infoVisible] = useVisible(0.1);
   const [formRef, formVisible] = useVisible(0.1);
 
-  useEffect(() => { setHeaderVisible(true); }, []);
+  useEffect(() => {
+    setHeaderVisible(true);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,9 +77,10 @@ export default function ContactPage() {
 
   return (
     <main className={styles.contactPage}>
-
       {/* ── Header ───────────────────────────────────────────────────────── */}
-      <section className={`${styles.header} ${headerVisible ? styles.headerVisible : ""}`}>
+      <section
+        className={`${styles.header} ${headerVisible ? styles.headerVisible : ""}`}
+      >
         <div className={styles.headerContent}>
           <span className={styles.headerEyebrow}>Contact</span>
           <h1 className={styles.headerTitle}>Get in Touch</h1>
@@ -90,7 +95,6 @@ export default function ContactPage() {
       <section className={styles.contactSection}>
         <div className={styles.container}>
           <div className={styles.contactGrid}>
-
             {/* Info panel */}
             <div
               ref={infoRef}
@@ -109,7 +113,9 @@ export default function ContactPage() {
                       <div className={styles.infoText}>
                         <span className={styles.infoLabel}>{item.label}</span>
                         {item.href ? (
-                          <a href={item.href} className={styles.infoValue}>{item.value}</a>
+                          <a href={item.href} className={styles.infoValue}>
+                            {item.value}
+                          </a>
                         ) : (
                           <span className={styles.infoValue}>{item.value}</span>
                         )}
@@ -176,11 +182,9 @@ export default function ContactPage() {
                 )}
               </form>
             </div>
-
           </div>
         </div>
       </section>
-
     </main>
   );
 }

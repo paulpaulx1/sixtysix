@@ -22,7 +22,7 @@ export default function Hero() {
 
           <div className={styles.heroActions}>
             <div className={styles.socialSection}>
-              <SocialIcons isHomepage={true} />
+              {/* <SocialIcons isHomepage={true} /> */}
             </div>
           </div>
         </div>

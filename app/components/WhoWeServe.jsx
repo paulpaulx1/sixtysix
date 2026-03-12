@@ -114,7 +114,7 @@ export default function WhoWeServe() {
       </section>
 
       {/* ── WHY 66TRAINING — compressed dark strip ───────────────────────── */}
-      <section
+      {/* <section
         ref={whyRef}
         id="why-66training"
         className={`${styles.whySection} ${whyVisible ? styles.whyVisible : ""}`}
@@ -157,7 +157,7 @@ export default function WhoWeServe() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
