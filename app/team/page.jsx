@@ -82,8 +82,10 @@ function useVisible(threshold = 0.12) {
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold, rootMargin: "0px 0px -40px 0px" }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold, rootMargin: "0px 0px -40px 0px" },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -98,13 +100,17 @@ export default function TeamPage() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  useEffect(() => { setHeroVisible(true); }, []);
+  useEffect(() => {
+    setHeroVisible(true);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" },
     );
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -112,9 +118,10 @@ export default function TeamPage() {
 
   return (
     <main className={styles.teamPage}>
-
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}>
+      <section
+        className={`${styles.hero} ${heroVisible ? styles.heroVisible : ""}`}
+      >
         <div className={styles.heroContent}>
           <span className={styles.heroEyebrow}>Our Team</span>
           <h1 className={styles.heroTitle}>Meet the 66Training Team</h1>
@@ -128,23 +135,28 @@ export default function TeamPage() {
       </section>
 
       {/* ── Intro ────────────────────────────────────────────────────────── */}
-      <section ref={introRef} className={`${styles.introSection} ${introVisible ? styles.introVisible : ""}`}>
+      <section
+        ref={introRef}
+        className={`${styles.introSection} ${introVisible ? styles.introVisible : ""}`}
+      >
         <div className={styles.container}>
           <div className={styles.introGrid}>
             <div className={styles.introLeft}>
               <span className={styles.eyebrow}>What We Bring</span>
-              <h2 className={styles.introTitle}>Workforce Implementation Professionals</h2>
+              <h2 className={styles.introTitle}>
+                Workforce Implementation Professionals
+              </h2>
               <p className={styles.introBody}>
                 Our team blends deep experience in program management,
                 curriculum design, employer engagement, apprenticeship
-                development, workforce alignment, and instructional strategies
-                — all focused on moving workforce initiatives from funded
-                vision to operational success.
+                development, workforce alignment, and instructional strategies —
+                all focused on moving workforce initiatives from funded vision
+                to operational success.
               </p>
               <p className={styles.introBody}>
                 Every engagement is supported by collaborative expertise,
-                ensuring dedication, continuity, and capacity — not reliance
-                on a single individual.
+                ensuring dedication, continuity, and capacity — not reliance on
+                a single individual.
               </p>
             </div>
             <div className={styles.introRight}>
@@ -152,7 +164,11 @@ export default function TeamPage() {
               <ul className={styles.expertiseList}>
                 {expertise.map((item) => (
                   <li key={item}>
-                    <CheckCircle2 size={14} strokeWidth={2.2} className={styles.checkIcon} />
+                    <CheckCircle2
+                      size={14}
+                      strokeWidth={2.2}
+                      className={styles.checkIcon}
+                    />
                     {item}
                   </li>
                 ))}
@@ -163,7 +179,10 @@ export default function TeamPage() {
       </section>
 
       {/* ── Leadership Spotlight ─────────────────────────────────────────── */}
-      <section ref={spotlightRef} className={`${styles.spotlightSection} ${spotlightVisible ? styles.spotlightVisible : ""}`}>
+      <section
+        ref={spotlightRef}
+        className={`${styles.spotlightSection} ${spotlightVisible ? styles.spotlightVisible : ""}`}
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>Leadership Spotlight</span>
@@ -171,11 +190,9 @@ export default function TeamPage() {
           </div>
           <div className={styles.spotlightCard}>
             <div className={styles.spotlightImage}>
-              <Image
-                src="/images/team/Dan Montoya.avif"
+              <img
+                src="/images/team/dan-montoya.jpg"
                 alt="Dan Montoya"
-                width={320}
-                height={380}
                 className={styles.spotlightPhoto}
               />
             </div>
@@ -205,7 +222,9 @@ export default function TeamPage() {
               <div className={styles.dvbeBadge}>
                 <span>DVBE Certified</span>
                 <span className={styles.badgeDot}>·</span>
-                <span>California-Certified Disabled Veteran Business Enterprise</span>
+                <span>
+                  California-Certified Disabled Veteran Business Enterprise
+                </span>
               </div>
             </div>
           </div>
@@ -245,7 +264,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
