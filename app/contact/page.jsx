@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { sendContactEmail } from "./actions";
-import { Mail, Phone, MapPin, Award } from "lucide-react";
+import { Mail, MapPin, Award } from "lucide-react";
 import styles from "./page.module.css";
 
 function useVisible(threshold = 0.12) {
@@ -29,12 +28,6 @@ const infoItems = [
     value: "info@66training.com",
     href: "mailto:info@66training.com",
   },
-  // {
-  //   icon: Phone,
-  //   label: "Phone",
-  //   value: "(555) 555-5555",
-  //   href: "tel:+15555555555",
-  // },
   {
     icon: MapPin,
     label: "Service Area",
@@ -50,6 +43,13 @@ const infoItems = [
 ];
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    organization: "",
+    message: "",
+  });
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -60,19 +60,41 @@ export default function ContactPage() {
     setHeaderVisible(true);
   }, []);
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus("");
-    const formData = new FormData(e.target);
-    const result = await sendContactEmail(formData);
-    if (result.success) {
-      setStatus("success");
-      e.target.reset();
-    } else {
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          organization: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch {
       setStatus("error");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -138,28 +160,61 @@ export default function ContactPage() {
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
                     <label htmlFor="name">Name *</label>
-                    <input type="text" id="name" name="name" required />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="email">Email *</label>
-                    <input type="email" id="email" name="email" required />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
                     <label htmlFor="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="organization">Organization</label>
-                    <input type="text" id="organization" name="organization" />
+                    <input
+                      type="text"
+                      id="organization"
+                      name="organization"
+                      value={formData.organization}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
                 <div className={styles.formGroup}>
                   <label htmlFor="message">Message *</label>
-                  <textarea id="message" name="message" rows="6" required />
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
 
                 <button
