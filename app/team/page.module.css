@@ -72,7 +72,7 @@
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
     background: linear-gradient(rgba(38, 50, 56, 0.84), rgba(38, 50, 56, 0.94)),
-        url('/images/team/team-hero.png');
+        url('/images/team/team-hero-1.jpg');
     background-size: cover;
     background-position: center;
     background-color: #263238;
