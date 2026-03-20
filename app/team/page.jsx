@@ -50,24 +50,14 @@ const team = [
     image: "/images/team/Olivia%20Herriford.avif",
     bio: "Olivia Herriford is a visionary leader with extensive experience in technology, diversity, and strategic engagement. A trailblazer in the tech industry, she has held leadership roles in both corporate and nonprofit sectors, contributing to major organizational growth and inclusive innovation. Olivia supports 66Training's efforts to embed equity, inclusion, and strategic tech insight into workforce initiatives.",
   },
-  {
-    name: "Sam Hopstone",
-    role: "Project Management Consultant",
-    image: "/images/team/Samuel%20Hopstone.avif",
-    bio: "Founder of Elderflower, Samuel simplifies environmental permitting with technical support, field oversight, and project management services. His passion for environmental stewardship is backed by a background in civil engineering, environmental consulting, and project management.",
-  },
+
   {
     name: "Iyuanna Pease",
     role: "SEL & DEI Specialist",
     image: "/images/team/Iyuanna%20Pease.avif",
     bio: "Dr. Iyuanna Pease specializes in SEL, DEI, and trauma-informed practices, empowering professionals for holistic well-being. With a rich background in counseling and academia, she offers tailored support, fostering resilience and emotional intelligence.",
   },
-  {
-    name: "Janhavi Pendse",
-    role: "Workforce Development Consultant",
-    image: "/images/team/Janhavi%20Pendse.avif",
-    bio: "Janhavi Pendse is an experienced consultant specializing in workforce development across higher education, private, and non-profit sectors. With extensive expertise in operations, program management, organizational development, and program evaluation, Janhavi has a proven track record of driving organizational success.",
-  },
+
   {
     name: "Lauren Tabata",
     role: "Associate Consultant",
