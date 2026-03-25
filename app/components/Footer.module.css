@@ -235,3 +235,20 @@
     flex-wrap: wrap;
   }
 }
+
+.vibLogoWrapper {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.vibLogo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.vibLogo:hover {
+  opacity: 1;
+}

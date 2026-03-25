@@ -96,6 +96,17 @@ const Footer = () => {
                 <span>California & Nationwide</span>
               </li>
             </ul>
+
+            {/* VIB Network logo */}
+            <div className={styles.vibLogoWrapper}>
+              <Image
+                src="/vib.png"
+                alt="VIB Network"
+                width={160}
+                height={80}
+                className={styles.vibLogo}
+              />
+            </div>
           </div>
         </div>
 
