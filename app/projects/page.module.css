@@ -926,3 +926,357 @@
         transition: none !important;
     }
 }
+
+/* ── Context (under stats) ─────────────────────────────────────────────── */
+
+.contextBlock {
+    margin: 2.5rem auto 0;
+    max-width: 860px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 1.4rem;
+
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.contextVisible {
+    animation: fadeInUp 0.5s ease-out 0.15s forwards;
+}
+
+.contextInner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 2rem;
+    align-items: center;
+}
+
+.contextCopy {
+    text-align: left;
+}
+
+.contextText {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contextParen {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.contextLink {
+    margin-top: 0.9rem;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contextLink:hover {
+    opacity: 0.75;
+    transform: translateX(2px);
+}
+
+.contextIconWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.contextIcon {
+    width: 140px;
+    height: 140px;
+    color: rgba(255, 107, 53, .7);
+    animation: slowSpin 18s linear infinite;
+}
+
+@keyframes slowSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .contextInner {
+        grid-template-columns: 1fr;
+    }
+
+    .contextIconWrap {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contextIcon {
+        animation: none !important;
+    }
+}
+
+body.modal-open .nav {
+    z-index: 10 !important;
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(15, 18, 20, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal {
+    width: min(960px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: #fff;
+    border-top: 4px solid var(--orange);
+    border-radius: 6px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+}
+
+/* ── Modal Overlay ───────────────────────────────────────────── */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(12, 14, 16, 0.72);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* ── Modal Container ─────────────────────────────────────────── */
+
+.modal {
+    width: min(880px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+    border: 1px solid var(--charcoal-light);
+    border-top: 4px solid var(--orange);
+    border-radius: 6px;
+
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+
+    padding: 1.4rem 1.5rem 1.2rem;
+    border-bottom: 1px solid var(--charcoal-light);
+
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.modalEyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+}
+
+.modalTitle {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Close button */
+
+.modalClose {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--charcoal-light);
+    background: whitesmoke;
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modalClose:hover {
+    background: #f3f3f3;
+    transform: translateY(-1px);
+}
+
+/* ── Body ───────────────────────────────────────────────────── */
+
+.modalBody {
+    padding: 1.5rem;
+}
+
+/* Intro copy */
+
+.modalIntro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.modalText {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--charcoal-mid);
+    margin-bottom: 1.5rem;
+}
+
+/* ── Grid Cards ─────────────────────────────────────────────── */
+
+.modalGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.modalCard {
+    background: whitesmoke;
+    border: 1px solid var(--charcoal-light);
+    border-radius: 4px;
+    padding: 1.2rem;
+}
+
+.modalCardTitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    color: var(--charcoal);
+}
+
+.modalList {
+    padding-left: 1rem;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.modalList li {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--charcoal-mid);
+}
+
+/* ── Links Section ─────────────────────────────────────────── */
+
+.linkSection {
+    margin-top: 1.75rem;
+}
+
+.linkSectionTitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    color: var(--charcoal);
+}
+
+.linkList {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.resourceLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.9rem 1rem;
+
+    text-decoration: none;
+    color: var(--charcoal);
+
+    border: 1px solid var(--charcoal-light);
+    border-radius: 4px;
+    background: #ffffff;
+
+    transition: all 0.2s ease;
+}
+
+.resourceLink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    border-color: rgba(255, 107, 53, 0.4);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .modalGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .modalOverlay {
+        padding: 1rem;
+        align-items: flex-end;
+    }
+
+    .modal {
+        max-height: 92vh;
+    }
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .modalOverlay,
+    .modal,
+    .resourceLink,
+    .modalClose {
+        animation: none !important;
+        transition: none !important;
+    }
+}
