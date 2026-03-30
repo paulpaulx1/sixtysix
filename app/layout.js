@@ -34,7 +34,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://66professionalservices.com"), // Update with actual domain
+  metadataBase: new URL("https://66training.com"),
   title: {
     default:
       "66 Training Services | Higher Education Services & Workforce Development",
@@ -54,9 +54,9 @@ export const metadata = {
     "DVBE certified",
     "8a certified",
   ],
-  authors: [{ name: "66 Professional Services" }],
-  creator: "66 Professional Services",
-  publisher: "66 Professional Services",
+  authors: [{ name: "66 Training Services" }],
+  creator: "66 Training Services",
+  publisher: "66 Training Services",
   formatDetection: {
     email: false,
     address: false,
@@ -65,25 +65,25 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://66professionalservices.com",
-    siteName: "66 Professional Services",
+    url: "https://66training.com",
+    siteName: "66 Training Services",
     title:
-      "66 Professional Services | Higher Education Services & Workforce Development",
+      "66 Training Services | Higher Education Services & Workforce Development",
     description:
       "California's leading higher education services organization delivering comprehensive workforce development, curriculum design, and project management solutions.",
     images: [
       {
-        url: "/og-image.jpg", // Create this image - 1200x630px
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "66 Professional Services - Higher Education & Workforce Development",
+        alt: "66 Training Services - Higher Education & Workforce Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "66 Professional Services | Higher Education Services & Workforce Development",
+      "66 Training Services | Higher Education Services & Workforce Development",
     description:
       "California's leading higher education services organization delivering comprehensive workforce development and curriculum design solutions.",
     images: ["/og-image.jpg"],
@@ -100,7 +100,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Add after setting up Google Search Console
+    google: "your-google-verification-code",
   },
 };
 
@@ -108,26 +108,23 @@ export const metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://66professionalservices.com",
-  name: "66 Professional Services",
-  alternateName: "66 Pro Services",
-  description:
-    "California's leading higher education services organization delivering comprehensive workforce development, curriculum design, and project management solutions for community colleges, state agencies, and federal clients nationwide.",
-  url: "https://66professionalservices.com",
-  telephone: "+1-XXX-XXX-XXXX", // Add actual phone
-  email: "contact@66professionalservices.com", // Add actual email
+  "@id": "https://66training.com",
+  name: "66 Training Services",
+  url: "https://66training.com",
+  foundingDate: "2016",
+  email: "info@66training.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Your Street Address", // Add actual address
-    addressLocality: "Your City",
+    streetAddress: "8690 Sierra College Blvd. Ste 160-366",
+    addressLocality: "Roseville",
     addressRegion: "CA",
-    postalCode: "XXXXX",
+    postalCode: "95661",
     addressCountry: "US",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: "XX.XXXX", // Add actual coordinates
-    longitude: "XX.XXXX",
+    latitude: "38.7521",
+    longitude: "-121.2880",
   },
   areaServed: [
     {
@@ -139,19 +136,11 @@ const localBusinessSchema = {
       name: "United States",
     },
   ],
-  serviceArea: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: "XX.XXXX",
-      longitude: "XX.XXXX",
-    },
-    geoRadius: "Nationwide",
-  },
+
   priceRange: "$$$",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Professional Services",
+    name: "Training Services",
     itemListElement: [
       {
         "@type": "Offer",
@@ -220,43 +209,29 @@ const localBusinessSchema = {
   ],
   awards: ["DVBE Certified - Disabled Veteran Business Enterprise"],
   slogan: "California's Leading Higher Education Services Partner",
-  foundingDate: "2016", // Adjust to actual founding year (mentioned 8+ years)
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "1", // Update as reviews come in
-    bestRating: "5",
-    worstRating: "1",
-  },
-  sameAs: [
-    // Add social media profiles when available
-    // 'https://www.linkedin.com/company/66-professional-services',
-    // 'https://twitter.com/66proservices',
-  ],
+
+  // sameAs: [
+  //   // Add social media profiles when available
+  //   // 'https://www.linkedin.com/company/66-professional-services',
+  //   // 'https://twitter.com/66proservices',
+  // ],
 };
 
 // Organization Schema for brand recognition
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://66professionalservices.com/#organization",
-  name: "66 Professional Services",
-  url: "https://66professionalservices.com",
+  name: "66 Training Services",
+  url: "https://66training.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://66professionalservices.com/logo.png", // Add actual logo
+    url: "https://66training.com/logo.png",
     width: 250,
     height: 60,
   },
+  email: "info@66training.com",
   description:
-    "Expert higher education services firm delivering workforce development, curriculum design, and project management solutions.",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+1-XXX-XXX-XXXX",
-    contactType: "customer service",
-    areaServed: "US",
-    availableLanguage: "English",
-  },
+    "California-based higher education services firm delivering workforce development, curriculum design, and project management solutions for community colleges, state agencies, and federal clients.",
 };
 
 export default function RootLayout({ children }) {
