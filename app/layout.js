@@ -80,14 +80,7 @@ export const metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "66 Training Services | Higher Education Services & Workforce Development",
-    description:
-      "California's leading higher education services organization delivering comprehensive workforce development and curriculum design solutions.",
-    images: ["/og-image.jpg"],
-  },
+
   robots: {
     index: true,
     follow: true,
