@@ -1,0 +1,527 @@
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+:root {
+    --orange: #ff6b35;
+    --orange-dim: rgba(255, 107, 53, 0.10);
+    --charcoal: #263238;
+    --charcoal-mid: #546e7a;
+    --charcoal-light: #cfd8dc;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── Page ────────────────────────────────────────────────────────────────── */
+.servicesPage {
+    min-height: 100vh;
+    background: whitesmoke;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.hero {
+    background: linear-gradient(rgba(38, 50, 56, 0.88), rgba(38, 50, 56, 0.88)),
+        url('/images/services-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 12rem 2rem 8rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dot grid overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
+/* Orange bar at bottom of hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--orange);
+}
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.heroEyebrow {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+    opacity: 0;
+}
+
+.heroVisible .heroEyebrow {
+    animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.heroTitle {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: whitesmoke;
+    opacity: 0;
+}
+
+.heroVisible .heroTitle {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.heroDescription {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 400;
+    max-width: 640px;
+    margin: 0 auto;
+    opacity: 0;
+}
+
+.heroVisible .heroDescription {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* ── Services Section ────────────────────────────────────────────────────── */
+.servicesSection {
+    padding: 6rem 2rem;
+    background: whitesmoke;
+
+    background-image: radial-gradient(circle, rgba(38, 50, 56, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── Service Card ────────────────────────────────────────────────────────── */
+.serviceCard {
+    background: #ffffff;
+    border: 1px solid var(--charcoal-light);
+    border-radius: 4px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.serviceCardVisible {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.serviceCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+}
+
+/* Alternate layout for even cards */
+.serviceCard:nth-child(even) {
+    grid-template-columns: 1fr 380px;
+}
+
+.serviceCard:nth-child(even) .serviceImageWrapper {
+    order: 2;
+}
+
+.serviceCard:nth-child(even) .serviceContent {
+    order: 1;
+    border-left: none;
+    border-right: 3px solid var(--orange);
+}
+
+/* ── Image wrapper ───────────────────────────────────────────────────────── */
+.serviceImageWrapper {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    overflow: hidden;
+    background: var(--charcoal);
+}
+
+.serviceImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    opacity: 0.9;
+}
+
+.serviceCard:hover .serviceImage {
+    transform: scale(1.05);
+}
+
+.serviceNumber {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.18);
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* ── Content ─────────────────────────────────────────────────────────────── */
+.serviceContent {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    border-left: 3px solid var(--orange);
+}
+
+.serviceTitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceTitle {
+    animation: fadeInUp 0.6s ease-out 0.15s forwards;
+}
+
+.serviceSubtitle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceSubtitle {
+    animation: fadeInUp 0.6s ease-out 0.25s forwards;
+}
+
+.serviceDescription {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--charcoal-mid);
+    margin-bottom: 1.75rem;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceDescription {
+    animation: fadeInUp 0.6s ease-out 0.35s forwards;
+}
+
+.serviceFeatures {
+    margin-bottom: 1.75rem;
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceFeatures {
+    animation: fadeInUp 0.6s ease-out 0.45s forwards;
+}
+
+.serviceFeatures h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.85rem;
+}
+
+.serviceFeatures ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.serviceFeatures li {
+    padding-left: 1.25rem;
+    position: relative;
+    color: var(--charcoal-mid);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.serviceFeatures li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.serviceClients {
+    font-size: 0.85rem;
+    color: var(--charcoal-mid);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--charcoal-light);
+    opacity: 0;
+}
+
+.serviceCardVisible .serviceClients {
+    animation: fadeInUp 0.6s ease-out 0.55s forwards;
+}
+
+.serviceClients strong {
+    color: var(--charcoal);
+    font-weight: 600;
+}
+
+/* ── CTA Section ─────────────────────────────────────────────────────────── */
+.ctaSection {
+    background: #2b2b2b;
+    color: #ffffff;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.ctaSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
+/* Orange top border on CTA */
+.ctaSection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--orange);
+}
+
+.ctaSection.ctaVisible {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ctaEyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 107, 53, 0.85);
+    margin-bottom: 12px;
+    opacity: 0;
+}
+
+.ctaVisible .ctaEyebrow {
+    animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.ctaContent h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: whitesmoke;
+    opacity: 0;
+}
+
+.ctaVisible .ctaContent h2 {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.ctaContent p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+}
+
+.ctaVisible .ctaContent p {
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: #fff;
+    padding: 14px 36px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.82rem;
+    border: 2px solid var(--orange);
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.ctaVisible .ctaButton {
+    animation: scaleIn 0.6s ease-out 0.4s forwards;
+}
+
+.ctaButton:hover {
+    background: #e8521f;
+    border-color: #e8521f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 968px) {
+
+    .serviceCard,
+    .serviceCard:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+
+    .serviceCard:nth-child(even) .serviceImageWrapper {
+        order: 1;
+    }
+
+    .serviceCard:nth-child(even) .serviceContent {
+        order: 2;
+        border-right: none;
+        border-left: 3px solid var(--orange);
+    }
+
+    .serviceImageWrapper {
+        min-height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 10rem 1.5rem 6rem;
+    }
+
+    .servicesSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .serviceContent {
+        padding: 2rem;
+    }
+
+    .ctaSection {
+        padding: 4rem 1.5rem;
+    }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    .heroVisible .heroEyebrow,
+    .heroVisible .heroTitle,
+    .heroVisible .heroDescription,
+    .serviceCard,
+    .serviceCardVisible,
+    .serviceCardVisible .serviceTitle,
+    .serviceCardVisible .serviceSubtitle,
+    .serviceCardVisible .serviceDescription,
+    .serviceCardVisible .serviceFeatures,
+    .serviceCardVisible .serviceClients,
+    .ctaSection.ctaVisible,
+    .ctaVisible .ctaContent h2,
+    .ctaVisible .ctaContent p,
+    .ctaVisible .ctaButton {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.serviceCard {
+    scroll-margin-top: 130px;
+}

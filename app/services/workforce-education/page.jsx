@@ -1,0 +1,14 @@
+import ServicesPage from "./ServicesPage";
+
+export const metadata = {
+  title: "Higher Education & Workforce Development Services",
+  description:
+    "66 Training Services offers workforce development, curriculum design, project management, training delivery, and employer engagement services for California community colleges and government agencies.",
+  openGraph: {
+    url: "https://66training.com/services",
+  },
+};
+
+export default function Page() {
+  return <ServicesPage />;
+}
