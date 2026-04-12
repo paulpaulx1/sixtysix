@@ -4,6 +4,13 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { DM_Sans } from "next/font/google";
+import { Libre_Baskerville } from "next/font/google";
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
+});
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -229,7 +236,10 @@ const organizationSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${libreBaskerville.variable}`}
+    >
       <head>
         {/* Local Business Schema */}
         <script

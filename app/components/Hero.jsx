@@ -13,7 +13,15 @@ export default function Hero() {
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroHeading}>
-              66 <span className={styles.heroAccent}>Training</span> Services
+              <span className={styles.heroLine1}>
+                <span className={styles.wordWhere}>where</span>
+                <span className={styles.wordPotential}>potential</span>
+              </span>
+
+              <span className={styles.heroLine2}>
+                <span className={styles.wordBecomes}>becomes</span>
+                <span className={styles.heroAccent}>Performance.</span>
+              </span>
             </h1>
 
             <p className={styles.heroSubtitle}>
@@ -26,7 +34,11 @@ export default function Hero() {
             <div className={styles.ctaSection}>
               <Link href="/projects" className={styles.ctaButtonPrimary}>
                 <span className={styles.ctaIconWrap}>
-                  <Briefcase size={18} strokeWidth={2} className={styles.ctaIcon} />
+                  <Briefcase
+                    size={18}
+                    strokeWidth={2}
+                    className={styles.ctaIcon}
+                  />
                 </span>
                 <span className={styles.ctaText}>View Proof</span>
                 <ArrowRight
