@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import styles from "./Navigation.module.css";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import styles from "./Navigation.module.css";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const forceDark = ["/projects"].includes(pathname);
 
@@ -16,23 +18,24 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-
-    if (!isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    setIsMobileMenuOpen((prev) => {
+      const next = !prev;
+      document.body.style.overflow = next ? "hidden" : "unset";
+      if (!next) setIsMobileServicesOpen(false);
+      return next;
+    });
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
     document.body.style.overflow = "unset";
   };
 
@@ -44,10 +47,11 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`${styles.nav} ${isScrolled || forceDark ? styles.navScrolled : ""}`}
+      className={`${styles.nav} ${
+        isScrolled || forceDark ? styles.navScrolled : ""
+      }`}
     >
       <div className={styles.navContainer}>
-        {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
             className={styles.logoImage}
@@ -58,16 +62,39 @@ export default function Navigation() {
           />
         </Link>
 
-        {/* Navigation Container */}
         <div className={styles.navRight}>
-          {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
             <li className={styles.navItem}>
               <Link href="/#about">About</Link>
             </li>
-            <li className={styles.navItem}>
-              <Link href="/services">Services</Link>
+
+            <li className={`${styles.navItem} ${styles.navItemServices}`}>
+              <button
+                type="button"
+                className={styles.navDropdownTrigger}
+                aria-expanded="false"
+              >
+                <span>Services</span>
+                <ChevronDown size={16} className={styles.navCaret} />
+              </button>
+
+              <div className={styles.dropdown}>
+                <Link
+                  href="/services/leadership-development"
+                  className={styles.dropdownLink}
+                >
+                  Leadership Development &amp; Consulting
+                </Link>
+
+                <Link
+                  href="/services/workforce-education"
+                  className={styles.dropdownLink}
+                >
+                  Workforce &amp; Education Services
+                </Link>
+              </div>
             </li>
+
             <li className={styles.navItem}>
               <Link href="/projects">Projects</Link>
             </li>
@@ -80,19 +107,20 @@ export default function Navigation() {
           </ul>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div
+        <button
+          type="button"
           className={`${styles.hamburger} ${
             isMobileMenuOpen ? styles.hamburgerOpen : ""
           }`}
           onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
 
-        {/* Mobile Navigation */}
         <div
           className={`${styles.mobileMenu} ${
             isMobileMenuOpen ? styles.mobileMenuOpen : ""
@@ -100,25 +128,59 @@ export default function Navigation() {
         >
           <ul className={styles.mobileNavLinks}>
             <li className={styles.mobileNavItem}>
-              <Link href="/" onClick={closeMobileMenu}>
+              <Link href="/#about" onClick={closeMobileMenu}>
                 About
               </Link>
             </li>
-            <li className={styles.mobileNavItem}>
-              <Link href="/services" onClick={closeMobileMenu}>
-                Services
-              </Link>
+
+            <li
+              className={`${styles.mobileNavItem} ${styles.mobileAccordionItem} ${
+                isMobileServicesOpen ? styles.mobileAccordionOpen : ""
+              }`}
+            >
+              <button
+                type="button"
+                className={styles.mobileServicesTrigger}
+                onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                aria-expanded={isMobileServicesOpen}
+              >
+                <span>Services</span>
+                <ChevronDown size={18} className={styles.mobileCaret} />
+              </button>
+
+              <div className={styles.mobileSubmenu}>
+                <div className={styles.mobileSubmenuInner}>
+                  <Link
+                    href="/services/workforce-education"
+                    onClick={closeMobileMenu}
+                    className={styles.mobileSubmenuLink}
+                  >
+                    Workforce &amp; Education Services
+                  </Link>
+
+                  <Link
+                    href="/services/leadership-development"
+                    onClick={closeMobileMenu}
+                    className={styles.mobileSubmenuLink}
+                  >
+                    Leadership Development &amp; Consulting
+                  </Link>
+                </div>
+              </div>
             </li>
+
             <li className={styles.mobileNavItem}>
               <Link href="/projects" onClick={closeMobileMenu}>
                 Projects
               </Link>
             </li>
+
             <li className={styles.mobileNavItem}>
               <Link href="/team" onClick={closeMobileMenu}>
                 Team
               </Link>
             </li>
+
             <li className={styles.mobileNavItem}>
               <Link href="/contact" onClick={closeMobileMenu}>
                 Contact
@@ -128,7 +190,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
           className={styles.mobileMenuOverlay}

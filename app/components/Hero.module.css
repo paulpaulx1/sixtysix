@@ -398,6 +398,7 @@
 
   .heroActions {
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -407,7 +408,7 @@
   }
 
   .heroContainer {
-    min-height: 80vh;
+    /* min-height: 80vh; */
     gap: 2.5rem;
   }
 
