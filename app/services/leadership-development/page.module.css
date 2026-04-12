@@ -1,13 +1,11 @@
-/* ── Tokens ──────────────────────────────────────────────────────────────── */
 :root {
     --orange: #ff6b35;
-    --orange-dim: rgba(255, 107, 53, 0.10);
+    --orange-dim: rgba(255, 107, 53, 0.1);
     --charcoal: #263238;
     --charcoal-mid: #546e7a;
     --charcoal-light: #cfd8dc;
 }
 
-/* ── Animations ──────────────────────────────────────────────────────────── */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -56,38 +54,40 @@
     }
 }
 
-/* ── Page ────────────────────────────────────────────────────────────────── */
 .servicesPage {
     min-height: 100vh;
     background: whitesmoke;
 }
 
-/* ── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
-    background: linear-gradient(rgba(38, 50, 56, 0.88), rgba(38, 50, 56, 0.88)),
-        url('/images/services-hero.jpg');
-    background-size: cover;
-    background-position: center;
     color: #ffffff;
     padding: 12rem 2rem 8rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
-/* Dot grid overlay */
+.leadershipHero {
+    background:
+        linear-gradient(rgba(22, 28, 32, 0.84), rgba(22, 28, 32, 0.9)),
+        url("/images/services/leadership-hero-placeholder.jpg");
+}
+
 .hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px);
     background-size: 28px 28px;
     pointer-events: none;
 }
 
-/* Orange bar at bottom of hero */
 .hero::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -97,19 +97,19 @@
 }
 
 .heroContent {
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
     position: relative;
 }
 
 .heroEyebrow {
     display: block;
-    font-size: 24px;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 14px;
+    margin-bottom: 1rem;
     opacity: 0;
 }
 
@@ -118,13 +118,14 @@
 }
 
 .heroTitle {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-family: "Syne", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.02em;
+    margin-bottom: 1.35rem;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
     color: whitesmoke;
+    line-height: 1.08;
     opacity: 0;
 }
 
@@ -137,7 +138,7 @@
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.82);
     font-weight: 400;
-    max-width: 640px;
+    max-width: 700px;
     margin: 0 auto;
     opacity: 0;
 }
@@ -146,14 +147,13 @@
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
-/* ── Services Section ────────────────────────────────────────────────────── */
-.servicesSection {
-    padding: 6rem 2rem;
+.approachBand {
+    padding: 5rem 2rem 4.5rem;
     background: whitesmoke;
-
-    background-image: radial-gradient(circle, rgba(38, 50, 56, 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(circle,
+            rgba(38, 50, 56, 0.05) 1px,
+            transparent 1px);
     background-size: 28px 28px;
-
 }
 
 .container {
@@ -161,7 +161,75 @@
     margin: 0 auto;
 }
 
-/* ── Service Card ────────────────────────────────────────────────────────── */
+.approachIntro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+}
+
+.approachEyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.8rem;
+}
+
+.approachTitle {
+    font-family: "Syne", sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.9rem;
+}
+
+.approachDescription {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--charcoal-mid);
+}
+
+.approachGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.approachCard {
+    background: #ffffff;
+    border: 1px solid var(--charcoal-light);
+    padding: 1.5rem 1.2rem;
+    border-radius: 4px;
+}
+
+.approachCard h3 {
+    font-family: "Syne", sans-serif;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    margin-bottom: 0.7rem;
+}
+
+.approachCard p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--charcoal-mid);
+}
+
+.servicesSection {
+    padding: 2rem 2rem 6rem;
+    background: whitesmoke;
+    background-image: radial-gradient(circle,
+            rgba(38, 50, 56, 0.06) 1px,
+            transparent 1px);
+    background-size: 28px 28px;
+}
+
 .serviceCard {
     background: #ffffff;
     border: 1px solid var(--charcoal-light);
@@ -173,6 +241,7 @@
     opacity: 0;
     transform: translateY(30px);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    scroll-margin-top: 130px;
 }
 
 .serviceCardVisible {
@@ -181,10 +250,9 @@
 
 .serviceCard:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
 }
 
-/* Alternate layout for even cards */
 .serviceCard:nth-child(even) {
     grid-template-columns: 1fr 380px;
 }
@@ -199,7 +267,6 @@
     border-right: 3px solid var(--orange);
 }
 
-/* ── Image wrapper ───────────────────────────────────────────────────────── */
 .serviceImageWrapper {
     position: relative;
     width: 100%;
@@ -224,7 +291,7 @@
     position: absolute;
     bottom: 1.25rem;
     right: 1.25rem;
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 3.5rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.18);
@@ -232,7 +299,6 @@
     pointer-events: none;
 }
 
-/* ── Content ─────────────────────────────────────────────────────────────── */
 .serviceContent {
     padding: 2.5rem;
     display: flex;
@@ -243,7 +309,7 @@
 }
 
 .serviceTitle {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--charcoal);
@@ -293,7 +359,7 @@
 }
 
 .serviceFeatures h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     color: var(--charcoal);
@@ -320,7 +386,7 @@
 }
 
 .serviceFeatures li::before {
-    content: '→';
+    content: "→";
     position: absolute;
     left: 0;
     color: var(--orange);
@@ -344,7 +410,6 @@
     font-weight: 600;
 }
 
-/* ── CTA Section ─────────────────────────────────────────────────────────── */
 .ctaSection {
     background: #2b2b2b;
     color: #ffffff;
@@ -357,17 +422,18 @@
 }
 
 .ctaSection::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px);
     background-size: 28px 28px;
     pointer-events: none;
 }
 
-/* Orange top border on CTA */
 .ctaSection::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -381,7 +447,7 @@
 }
 
 .ctaContent {
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     position: relative;
 }
@@ -402,7 +468,7 @@
 }
 
 .ctaContent h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 700;
     margin-bottom: 1rem;
@@ -458,8 +524,10 @@
     box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 968px) {
+    .approachGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .serviceCard,
     .serviceCard:nth-child(even) {
@@ -486,8 +554,16 @@
         padding: 10rem 1.5rem 6rem;
     }
 
+    .approachBand {
+        padding: 4rem 1.5rem 3.5rem;
+    }
+
+    .approachGrid {
+        grid-template-columns: 1fr;
+    }
+
     .servicesSection {
-        padding: 4rem 1.5rem;
+        padding: 1.5rem 1.5rem 4rem;
     }
 
     .serviceContent {
@@ -499,7 +575,6 @@
     }
 }
 
-/* ── Reduced motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
 
     .heroVisible .heroEyebrow,
@@ -513,6 +588,7 @@
     .serviceCardVisible .serviceFeatures,
     .serviceCardVisible .serviceClients,
     .ctaSection.ctaVisible,
+    .ctaVisible .ctaEyebrow,
     .ctaVisible .ctaContent h2,
     .ctaVisible .ctaContent p,
     .ctaVisible .ctaButton {
@@ -520,8 +596,4 @@
         opacity: 1 !important;
         transform: none !important;
     }
-}
-
-.serviceCard {
-    scroll-margin-top: 130px;
 }

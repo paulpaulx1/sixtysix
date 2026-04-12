@@ -15,7 +15,7 @@ const Footer = () => {
                 className={styles.logoImage}
                 width={500}
                 height={200}
-                src="/66-training-logo-orange.png"
+                src="/66_logo-1.png"
                 alt="66 Professional Services Logo"
               />
             </div>
