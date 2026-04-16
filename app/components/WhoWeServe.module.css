@@ -28,6 +28,7 @@
 }
 
 .eyebrow {
+    font-family: var(--font-syne);
     display: block;
     font-size: 1.72rem;
     font-weight: 700;
@@ -148,6 +149,7 @@
     font-size: 1rem;
     color: var(--charcoal-mid);
     line-height: 1.8;
+    font-weight: 600;
     margin: 0;
 }
 
@@ -210,7 +212,6 @@
 }
 
 .cardBody {
-    font-size: 0.9rem;
     color: var(--charcoal-mid);
     line-height: 1.75;
     margin: 0;
