@@ -464,7 +464,7 @@
   color: #ffffff;
 }
 
-.dropdownLink + .dropdownLink {
+.dropdownLink+.dropdownLink {
   margin-top: 0.15rem;
 }
 
@@ -525,7 +525,7 @@
   display: block;
 }
 
-.mobileSubmenu > * {
+.mobileSubmenu>* {
   overflow: hidden;
 }
 
@@ -558,4 +558,10 @@
 
 .mobileAccordionOpen .mobileSubmenu {
   max-height: 220px;
+}
+
+.dropdownHidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

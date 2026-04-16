@@ -31,31 +31,62 @@ const Footer = () => {
 
           {/* Services */}
           <div className={styles.footerColumn}>
-            <h4 className={styles.columnTitle}>Services</h4>
+            <h4 className={styles.columnTitle}>Workforce Education</h4>
             <ul className={styles.linksList}>
               <li>
-                <Link href="/services#workforce-development">
+                <Link href="/services/workforce-education#workforce-development">
                   Strong Workforce & CAI Support
                 </Link>
               </li>
               <li>
-                <Link href="/services#project-management">
+                <Link href="/services/workforce-education#project-management">
                   Regional Project Management
                 </Link>
               </li>
               <li>
-                <Link href="/services#employer-engagement">
+                <Link href="/services/workforce-education#employer-engagement">
                   Employer Engagement
                 </Link>
               </li>
               <li>
-                <Link href="/services#curriculum-development">
+                <Link href="/services/workforce-education#curriculum-development">
                   Curriculum Development
                 </Link>
               </li>
               <li>
-                <Link href="/services#training-delivery">
+                <Link href="/services/workforce-education#training-delivery">
                   Training Facilitation
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.footerColumn}>
+            <h4 className={styles.columnTitle}>Leadership Development</h4>
+            <ul className={styles.linksList}>
+              <li>
+                <Link href="/services/leadership-development#coaching-mentoring">
+                  Coaching & Mentoring
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/leadership-development#leadership-training">
+                  Leadership Training
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/leadership-development#communication-conflict">
+                  Communication & Conflict
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/leadership-development#organizational-assessment">
+                  Organizational Assessment
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/leadership-development#implementation-support">
+                  Implementation Support
                 </Link>
               </li>
             </ul>

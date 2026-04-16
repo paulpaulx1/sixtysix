@@ -11,14 +11,18 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [dropdownForceClose, setDropdownForceClose] = useState(false);
   const pathname = usePathname();
   const forceDark = ["/projects"].includes(pathname);
+
+  useEffect(() => {
+    setDropdownForceClose(false);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -68,27 +72,35 @@ export default function Navigation() {
               <Link href="/#about">About</Link>
             </li>
 
-            <li className={`${styles.navItem} ${styles.navItemServices}`}>
+            <li
+              className={`${styles.navItem} ${styles.navItemServices}`}
+              onMouseEnter={() => setDropdownForceClose(false)}
+            >
               <button
                 type="button"
                 className={styles.navDropdownTrigger}
-                aria-expanded="false"
+                aria-haspopup="true"
               >
                 <span>Services</span>
                 <ChevronDown size={16} className={styles.navCaret} />
               </button>
 
-              <div className={styles.dropdown}>
+              <div
+                className={`${styles.dropdown} ${
+                  dropdownForceClose ? styles.dropdownHidden : ""
+                }`}
+              >
                 <Link
                   href="/services/leadership-development"
                   className={styles.dropdownLink}
+                  onClick={() => setDropdownForceClose(true)}
                 >
                   Leadership Development &amp; Consulting
                 </Link>
-
                 <Link
                   href="/services/workforce-education"
                   className={styles.dropdownLink}
+                  onClick={() => setDropdownForceClose(true)}
                 >
                   Workforce &amp; Education Services
                 </Link>
@@ -157,7 +169,6 @@ export default function Navigation() {
                   >
                     Workforce &amp; Education Services
                   </Link>
-
                   <Link
                     href="/services/leadership-development"
                     onClick={closeMobileMenu}
@@ -174,13 +185,11 @@ export default function Navigation() {
                 Projects
               </Link>
             </li>
-
             <li className={styles.mobileNavItem}>
               <Link href="/team" onClick={closeMobileMenu}>
                 Team
               </Link>
             </li>
-
             <li className={styles.mobileNavItem}>
               <Link href="/contact" onClick={closeMobileMenu}>
                 Contact
