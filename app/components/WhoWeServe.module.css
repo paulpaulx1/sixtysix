@@ -78,23 +78,106 @@
 }
 
 /* 3-column grid */
-.audienceGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.audienceCard {
-    background: whitesmoke;
-    border: 1px solid var(--charcoal-light);
-    border-top: 3px solid var(--orange);
-    border-radius: 4px;
-    padding: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
+.audienceList {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.audienceRow {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--charcoal-light);
+    opacity: 0;
+    transform: translateY(20px);
+    background: #fff;
+}
+
+.visible .audienceRow {
+    animation: fadeInUp 0.55s ease-out forwards;
+}
+
+.audienceRowReverse {
+    grid-template-columns: 1fr 420px;
+}
+
+.audienceImageWrap {
+    position: relative;
+    min-height: 300px;
+}
+
+.audienceRowReverse .audienceImageWrap {
+    order: 2;
+}
+
+.audienceImage {
+    object-fit: cover;
+    object-position: center;
+}
+
+.audienceContent {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+    border-left: 3px solid var(--orange);
+}
+
+.cardTitleRow {
+    display: flex;
+    align-items: center;
     gap: 1rem;
+}
+
+.cardTitle {
+    font-family: "Syne", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.25;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.cardBody {
+    font-size: 1rem;
+    color: var(--charcoal-mid);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.audienceRowReverse .audienceContent {
+    border-left: none;
+    border-right: 3px solid var(--orange);
+    order: 1;
+}
+
+@media (max-width: 900px) {
+
+    .audienceRow,
+    .audienceRowReverse {
+        grid-template-columns: 1fr;
+        border-radius: 8px;
+    }
+
+    .audienceImageWrap {
+        min-height: 220px;
+    }
+
+    .audienceRowReverse .audienceImageWrap {
+        order: 1;
+    }
+
+    .audienceRowReverse .audienceContent {
+        order: 2;
+        border-right: none;
+        border-left: 3px solid var(--orange);
+    }
 }
 
 .visible .audienceCard {

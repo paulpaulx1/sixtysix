@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { ClipboardList, Palette, Rocket, TrendingUp } from "lucide-react";
 
 export default function LeadershipDevelopmentPage() {
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -26,7 +27,7 @@ export default function LeadershipDevelopmentPage() {
             setVisibleCards((prev) => new Set(prev).add(index));
           }
         },
-        { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+        { threshold: 0.12, rootMargin: "0px 0px -50px 0px" },
       );
 
       observer.observe(ref);
@@ -43,7 +44,7 @@ export default function LeadershipDevelopmentPage() {
       ([entry]) => {
         if (entry.isIntersecting) setCtaVisible(true);
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     observer.observe(ctaRef.current);
@@ -65,7 +66,7 @@ export default function LeadershipDevelopmentPage() {
       ],
       clients:
         "Public agencies, community college leaders, workforce and institutional partners",
-      image: "/images/services/leadership-coaching-placeholder.jpg",
+      image: "/leadership-images/coaching.jpg",
     },
     {
       id: "leadership-training",
@@ -81,7 +82,7 @@ export default function LeadershipDevelopmentPage() {
       ],
       clients:
         "Leadership training for supervisors, managers, and cross-functional teams",
-      image: "/images/services/leadership-training-placeholder.jpg",
+      image: "/leadership-images/leadership.jpg",
     },
     {
       id: "communication-conflict",
@@ -97,7 +98,7 @@ export default function LeadershipDevelopmentPage() {
       ],
       clients:
         "Supervisor and manager training, team leadership workshops, institutional staff development",
-      image: "/images/services/communication-conflict-placeholder.jpg",
+      image: "/leadership-images/conflict.jpg",
     },
     {
       id: "organizational-assessment",
@@ -113,7 +114,7 @@ export default function LeadershipDevelopmentPage() {
       ],
       clients:
         "Organizational leadership initiatives, public-sector assessment engagements, institutional effectiveness efforts",
-      image: "/images/services/organizational-assessment-placeholder.jpg",
+      image: "/leadership-images/assessment.jpg",
     },
     {
       id: "implementation-support",
@@ -129,7 +130,34 @@ export default function LeadershipDevelopmentPage() {
       ],
       clients:
         "Leadership initiatives requiring ongoing implementation, facilitation, and operational follow-through",
-      image: "/images/services/implementation-support-placeholder.jpg",
+      image: "/leadership-images/implementation.jpg",
+    },
+  ];
+
+  const approachSteps = [
+    {
+      icon: ClipboardList,
+      label: "Assess",
+      description:
+        "Understand organizational needs, workforce gaps, and leadership challenges.",
+    },
+    {
+      icon: Palette,
+      label: "Design",
+      description:
+        "Develop tailored strategies, programs, and implementation frameworks.",
+    },
+    {
+      icon: Rocket,
+      label: "Implement",
+      description:
+        "Lead delivery through training, coaching, and program facilitation.",
+    },
+    {
+      icon: TrendingUp,
+      label: "Sustain",
+      description:
+        "Support long-term success through evaluation, iteration, and continuous improvement.",
     },
   ];
 
@@ -172,37 +200,16 @@ export default function LeadershipDevelopmentPage() {
           </div>
 
           <div className={styles.approachGrid}>
-            <div className={styles.approachCard}>
-              <h3>Assess</h3>
-              <p>
-                Understand organizational needs, workforce gaps, and leadership
-                challenges.
-              </p>
-            </div>
-
-            <div className={styles.approachCard}>
-              <h3>Design</h3>
-              <p>
-                Develop tailored strategies, programs, and implementation
-                frameworks.
-              </p>
-            </div>
-
-            <div className={styles.approachCard}>
-              <h3>Implement</h3>
-              <p>
-                Lead delivery through training, coaching, and program
-                facilitation.
-              </p>
-            </div>
-
-            <div className={styles.approachCard}>
-              <h3>Sustain</h3>
-              <p>
-                Support long-term success through evaluation, iteration, and
-                continuous improvement.
-              </p>
-            </div>
+            {approachSteps.map(({ icon: Icon, label, description }, i) => (
+              <div key={label} className={styles.approachCard}>
+                <div className={styles.approachIcon}>
+                  <Icon size={24} strokeWidth={1.8} />
+                </div>
+                <span className={styles.approachStep}>Step 0{i + 1}</span>
+                <h3>{label}</h3>
+                <p>{description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

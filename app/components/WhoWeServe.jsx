@@ -11,22 +11,26 @@ import {
   Award,
 } from "lucide-react";
 import styles from "./WhoWeServe.module.css";
+import Image from "next/image";
 
 const audiences = [
   {
     icon: GraduationCap,
     title: "Community College Workforce Leaders",
     body: "We work with deans, directors, and workforce development teams to launch programs, coordinate regional initiatives, and manage Strong Workforce and CAI-funded projects.",
+    image: "/images/who-we-serve/college.jpg",
   },
   {
     icon: Building2,
     title: "Government Workforce & L&D Teams",
     body: "As a DVBE-certified firm, we support state agencies and public workforce entities in advancing training initiatives aligned with regional economic priorities.",
+    image: "/images/who-we-serve/government.jpg",
   },
   {
     icon: Briefcase,
     title: "Industry & Corporate Partners",
     body: "We help employers engage with colleges, align skill needs to program design, and strengthen talent pipelines within structured, college-led implementation frameworks.",
+    image: "/images/who-we-serve/industry.jpg",
   },
 ];
 
@@ -88,24 +92,37 @@ export default function WhoWeServe() {
             <span className={styles.eyebrow}>Who We Serve</span>
           </div>
 
-          <div className={styles.audienceGrid}>
+          <div className={styles.audienceList}>
             {audiences.map((a, i) => {
               const Icon = a.icon;
+              const isEven = i % 2 === 1;
               return (
                 <div
                   key={a.title}
-                  className={styles.audienceCard}
+                  className={`${styles.audienceRow} ${isEven ? styles.audienceRowReverse : ""}`}
                   style={{ animationDelay: `${i * 0.12}s` }}
                 >
-                  <div className={styles.cardIconWrap}>
-                    <Icon
-                      size={20}
-                      strokeWidth={1.8}
-                      className={styles.cardIcon}
+                  <div className={styles.audienceImageWrap}>
+                    <Image
+                      src={a.image}
+                      alt={a.title}
+                      fill
+                      className={styles.audienceImage}
                     />
                   </div>
-                  <h3 className={styles.cardTitle}>{a.title}</h3>
-                  <p className={styles.cardBody}>{a.body}</p>
+                  <div className={styles.audienceContent}>
+                    <div className={styles.cardTitleRow}>
+                      <div className={styles.cardIconWrap}>
+                        <Icon
+                          size={20}
+                          strokeWidth={1.8}
+                          className={styles.cardIcon}
+                        />
+                      </div>
+                      <h3 className={styles.cardTitle}>{a.title}</h3>
+                    </div>
+                    <p className={styles.cardBody}>{a.body}</p>
+                  </div>
                 </div>
               );
             })}
