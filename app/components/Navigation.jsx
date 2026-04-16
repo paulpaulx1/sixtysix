@@ -49,6 +49,14 @@ export default function Navigation() {
     };
   }, []);
 
+  const handleDropdownLinkClick = () => {
+    setDropdownForceClose(true);
+
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  };
+
   return (
     <nav
       className={`${styles.nav} ${
@@ -93,14 +101,15 @@ export default function Navigation() {
                 <Link
                   href="/services/leadership-development"
                   className={styles.dropdownLink}
-                  onClick={() => setDropdownForceClose(true)}
+                  onClick={handleDropdownLinkClick}
                 >
                   Leadership Development &amp; Consulting
                 </Link>
+
                 <Link
                   href="/services/workforce-education"
                   className={styles.dropdownLink}
-                  onClick={() => setDropdownForceClose(true)}
+                  onClick={handleDropdownLinkClick}
                 >
                   Workforce &amp; Education Services
                 </Link>
