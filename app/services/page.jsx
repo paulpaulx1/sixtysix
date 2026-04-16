@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "66 Training Services offers workforce development, curriculum design, project management, training delivery, and employer engagement services for California community colleges and government agencies.",
   openGraph: {
-    url: "https://66training.com/services",
+    url: "https://66professionalservices.com/services",
   },
 };
 

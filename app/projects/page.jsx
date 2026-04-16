@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Explore 66 Training Services' work with California community colleges, state agencies, and industry partners across workforce development, apprenticeship design, and regional initiatives.",
   openGraph: {
-    url: "https://66training.com/projects",
+    url: "https://66professionalservices.com/projects",
   },
 };
 

@@ -225,7 +225,7 @@ const organizationSchema = {
   url: "https://66training.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://66training.com/logo.png",
+    url: "https://66professionalservices.com/logo.png",
     width: 250,
     height: 60,
   },
