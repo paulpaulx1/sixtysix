@@ -25,8 +25,10 @@ export default function Hero() {
             </h1>
 
             <p className={styles.heroSubtitle}>
-              Higher Education Services • Workforce Development • Curriculum
-              Design
+              Education & Training Project Management
+            </p>
+            <p className={styles.heroSubtitle}>
+              Workforce Development • Curriculum Design
             </p>
           </div>
 
