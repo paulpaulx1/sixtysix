@@ -67,16 +67,17 @@ export default function AboutContent() {
           </div>
 
           <p className={styles.body}>
-            66 Professional Services partners with California community
-            colleges, regional consortia, and government workforce leaders to
-            implement high-impact training and education initiatives.
+            66 Professional Services partners with postsecondary institutions,
+            workforce development organizations, corporate training departments,
+            and government agencies to implement high-impact learning and
+            development initiatives.
           </p>
 
           <p className={styles.body}>
-            We provide expert program and project management, employer
-            engagement leadership, and industry-aligned implementation that
-            moves workforce initiatives from funded proposals to operational
-            success.
+            We provide expert program management, multi-stakeholder
+            collaboration, and industry-aligned implementation that moves
+            cross-sector initiatives from funded mandates or strategic goals to
+            operational success.
           </p>
 
           <div className={styles.ctaRow}>
