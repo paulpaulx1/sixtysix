@@ -76,6 +76,8 @@
 
 .logoImage {
   transition: all 0.3s ease;
+  min-height: 70px;
+  min-width: 230px;
 }
 
 /* Navigation Right Container */

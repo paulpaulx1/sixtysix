@@ -30,10 +30,14 @@
   width: 200px;
 }
 
+
 .logoImage {
-  width: 100%;
-  height: auto;
+  transition: all 0.3s ease;
+  height: 70px;
+  width: 230px;
 }
+
+
 
 .companyName {
   font-size: 1.2rem;
