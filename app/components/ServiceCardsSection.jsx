@@ -85,28 +85,28 @@ const ServiceCardsSection = () => {
   ──────────────────────────────────────────────────────────────────────── */
 
   const services = [
-    {
-      iconType: "house",
-      blueprint: "WFD_001",
-      title: "Strong Workforce & CAI Initiative Support",
-      description:
-        "Full lifecycle implementation support — moving initiatives from proposal to operational success.",
-      bullets: [
-        "Program concept development",
-        "Industry validation",
-        "Employer advisory board formation",
-        "Curriculum alignment",
-        "Apprenticeship design and documentation",
-        "Reporting and compliance oversight",
-        "Cross-college coordination",
-      ],
-      linkUrl: "/services#workforce",
-      linkText: "Learn More",
-    },
+    // {
+    //   iconType: "house",
+    //   blueprint: "WFD_001",
+    //   title: "Strong Workforce & CAI Initiative Support",
+    //   description:
+    //     "Full lifecycle implementation support — moving initiatives from proposal to operational success.",
+    //   bullets: [
+    //     "Program concept development",
+    //     "Industry validation",
+    //     "Employer advisory board formation",
+    //     "Curriculum alignment",
+    //     "Apprenticeship design and documentation",
+    //     "Reporting and compliance oversight",
+    //     "Cross-college coordination",
+    //   ],
+    //   linkUrl: "/services#workforce",
+    //   linkText: "Learn More",
+    // },
     {
       iconType: "buildings",
       blueprint: "PGM_001",
-      title: "Regional & Statewide Project Management",
+      title: "Project & Program Management",
       description:
         "Complex initiatives coordinated across multiple colleges and stakeholders — deliverables met, funding requirements satisfied.",
       bullets: [
@@ -119,22 +119,22 @@ const ServiceCardsSection = () => {
       linkUrl: "/services#project-management",
       linkText: "Learn More",
     },
-    {
-      iconType: "toolbox",
-      blueprint: "EMP_001",
-      title: "Employer Engagement & Industry Alignment",
-      description:
-        "A bridge between institutional priorities and employer expectations.",
-      bullets: [
-        "Targeted outreach",
-        "Advisory board facilitation",
-        "Curriculum alignment to workforce needs",
-        "Apprenticeship pathway design",
-        "Talent pipeline development",
-      ],
-      linkUrl: "/services#employer-engagement",
-      linkText: "Learn More",
-    },
+    // {
+    //   iconType: "toolbox",
+    //   blueprint: "EMP_001",
+    //   title: "Employer Engagement & Industry Alignment",
+    //   description:
+    //     "A bridge between institutional priorities and employer expectations.",
+    //   bullets: [
+    //     "Targeted outreach",
+    //     "Advisory board facilitation",
+    //     "Curriculum alignment to workforce needs",
+    //     "Apprenticeship pathway design",
+    //     "Talent pipeline development",
+    //   ],
+    //   linkUrl: "/services#employer-engagement",
+    //   linkText: "Learn More",
+    // },
     {
       iconType: "ruler",
       blueprint: "CUR_001",
@@ -167,22 +167,22 @@ const ServiceCardsSection = () => {
       linkUrl: "/services#training-facilitation",
       linkText: "Learn More",
     },
-    {
-      iconType: "wrench",
-      blueprint: "CPL_001",
-      title: "Compliance & Reporting",
-      description:
-        "Rigorous oversight that keeps funded programs on track and audit-ready.",
-      bullets: [
-        "Strong Workforce and CAI reporting requirements",
-        "Launchboard and outcomes data management",
-        "Fiscal accountability and budget documentation",
-        "Registered apprenticeship compliance",
-        "Program review and continuous improvement",
-      ],
-      linkUrl: "/services#compliance",
-      linkText: "Learn More",
-    },
+    // {
+    //   iconType: "wrench",
+    //   blueprint: "CPL_001",
+    //   title: "Compliance & Reporting",
+    //   description:
+    //     "Rigorous oversight that keeps funded programs on track and audit-ready.",
+    //   bullets: [
+    //     "Strong Workforce and CAI reporting requirements",
+    //     "Launchboard and outcomes data management",
+    //     "Fiscal accountability and budget documentation",
+    //     "Registered apprenticeship compliance",
+    //     "Program review and continuous improvement",
+    //   ],
+    //   linkUrl: "/services#compliance",
+    //   linkText: "Learn More",
+    // },
   ];
 
   return (

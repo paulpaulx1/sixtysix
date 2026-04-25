@@ -16,20 +16,20 @@ import Image from "next/image";
 const audiences = [
   {
     icon: GraduationCap,
-    title: "Community College Workforce Leaders",
-    body: "We work with deans, directors, and workforce development teams to launch programs, coordinate regional initiatives, and manage Strong Workforce and CAI-funded projects.",
+    title: "Higher Education",
+    body: "66 Professional Services partners with higher education leadership and workforce teams to launch high-impact programs and regional initiatives. We provide the administrative backbone for complex projects, specializing in curriculum alignment and strategic employer engagement to ensure academic offerings meet real-world industry demands.",
     image: "/images/who-we-serve/college.jpg",
   },
   {
     icon: Building2,
-    title: "Government Workforce & L&D Teams",
-    body: "As a DVBE-certified firm, we support state agencies and public workforce entities in advancing training initiatives aligned with regional economic priorities.",
+    title: "Government Agencies",
+    body: "As a certified disabled veteran business enterprise (DVBE), we partner with public sector leaders and agency administrators to drive training & education workforce initiatives. We bridge the gap between policy and impact by providing curriculum development and training facilitation that ensures public programs are industry-aligned and ready for immediate implementation.",
     image: "/images/who-we-serve/government.jpg",
   },
   {
     icon: Briefcase,
-    title: "Industry & Corporate Partners",
-    body: "We help employers engage with colleges, align skill needs to program design, and strengthen talent pipelines within structured, college-led implementation frameworks.",
+    title: "Corporate Clients",
+    body: "We partner with corporate training and development departments to scale internal upskilling and workforce initiatives. We ensure your learning and development goals align with industry standards and operational needs. We help companies turn strategic talent objectives into high-impact, ready-to-implement training solutions.",
     image: "/images/who-we-serve/industry.jpg",
   },
 ];
