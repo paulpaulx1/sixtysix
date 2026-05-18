@@ -1,3 +1,4 @@
+import { client } from "@/sanity/lib/client";
 import ProjectsPage from "./ProjectsPage";
 
 export const metadata = {
@@ -9,6 +10,7 @@ export const metadata = {
   },
 };
 
-export default function Page() {
-  return <ProjectsPage />;
+export default async function Page() {
+  const data = await client.fetch(`*[_type == "projectsPage"][0]`);
+  return <ProjectsPage data={data} />;
 }
