@@ -10,6 +10,8 @@ export const metadata = {
   },
 };
 
+export const revalidate = 0
+
 export default async function Page() {
   const data = await client.fetch(`*[_type == "projectsPage"][0]`);
   return <ProjectsPage data={data} />;
