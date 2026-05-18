@@ -19,7 +19,6 @@ export async function POST(request) {
   }
 
   revalidatePath("/", "layout");
-  console.log("revalidated");
 
   return NextResponse.json({ revalidated: true });
 }
