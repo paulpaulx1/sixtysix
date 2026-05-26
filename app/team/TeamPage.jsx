@@ -24,28 +24,14 @@ function useVisible(threshold = 0.12) {
 }
 
 export default function TeamPage({ data }) {
-  const { hero, intro, spotlight, team } = data;
+  const { hero, intro, team } = data;
 
   const [heroVisible, setHeroVisible] = useState(false);
   const [introRef, introVisible] = useVisible(0.1);
-  const [spotlightRef, spotlightVisible] = useVisible(0.1);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const [teamRef, teamVisible] = useVisible(0.05);
 
   useEffect(() => {
     setHeroVisible(true);
-  }, []);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" },
-    );
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -91,41 +77,7 @@ export default function TeamPage({ data }) {
         </div>
       </section>
 
-      <section
-        ref={spotlightRef}
-        className={`${styles.spotlightSection} ${spotlightVisible ? styles.spotlightVisible : ""}`}
-      >
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>{spotlight.eyebrow}</span>
-            <h2 className={styles.sectionTitle}>{spotlight.sectionTitle}</h2>
-          </div>
-          <div className={styles.spotlightCard}>
-            <div className={styles.spotlightImage}>
-              <img
-                src={urlFor(spotlight.image).width(800).url()}
-                alt={spotlight.image?.alt || spotlight.name}
-                className={styles.spotlightPhoto}
-              />
-            </div>
-            <div className={styles.spotlightContent}>
-              <h3 className={styles.spotlightName}>{spotlight.name}</h3>
-              <p className={styles.spotlightRole}>{spotlight.role}</p>
-              <div className={styles.spotlightDivider} />
-              <p className={styles.spotlightBio}>{spotlight.bioOne}</p>
-              <p className={styles.spotlightBio}>{spotlight.bioTwo}</p>
-              <p className={styles.spotlightBio}>{spotlight.bioThree}</p>
-              <div className={styles.dvbeBadge}>
-                <span>{spotlight.badgeText}</span>
-                <span className={styles.badgeDot}>·</span>
-                <span>{spotlight.badgeSubtext}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section ref={sectionRef} className={styles.teamSection}>
+      <section ref={teamRef} className={styles.teamSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>The Full Team</span>
@@ -135,7 +87,7 @@ export default function TeamPage({ data }) {
             {team.map((member, index) => (
               <div
                 key={member._key}
-                className={`${styles.teamCard} ${isVisible ? styles.visible : ""}`}
+                className={`${styles.teamCard} ${teamVisible ? styles.visible : ""}`}
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <div className={styles.imageWrapper}>

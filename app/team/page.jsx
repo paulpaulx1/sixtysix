@@ -11,6 +11,10 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const data = await client.fetch(`*[_type == "teamPage"][0]`);
+  const data = await client.fetch(`*[_type == "teamPage"][0]{
+  hero,
+  intro,
+  "team": team | order(isLeadership desc)
+}`);
   return <TeamPage data={data} />;
 }
