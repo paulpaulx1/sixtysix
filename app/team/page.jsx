@@ -14,7 +14,7 @@ export default async function Page() {
   const data = await client.fetch(`*[_type == "teamPage"][0]{
   hero,
   intro,
-  "team": team | order(isLeadership desc)
+  "team": team | order(isLeadership asc)
 }`);
   return <TeamPage data={data} />;
 }
