@@ -463,7 +463,8 @@
 .contractCard {
     background: whitesmoke;
     border: 1px solid var(--charcoal-light);
-    border-top: 3px solid var(--charcoal);
+    border-left: 4px solid var(--orange);
+    /* ← swap border-top: 3px solid var(--charcoal) for this */
     border-radius: 4px;
     padding: 2rem;
     display: flex;

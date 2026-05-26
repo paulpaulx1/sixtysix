@@ -528,3 +528,18 @@
     letter-spacing: -0.01em;
   }
 }
+
+@media (min-width: 1400px) {
+  .hero {
+    min-height: 75vh;
+    max-height: 900px;
+    clip-path: ellipse(120% 98% at 50% 0);
+  }
+}
+
+@media (min-width: 1800px) {
+  .hero {
+    max-height: 860px;
+    clip-path: ellipse(105% 98% at 50% 0);
+  }
+}
